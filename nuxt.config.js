@@ -78,6 +78,12 @@ export default {
         _: 'lodash',
       }),
     ],
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      }
+    },
   },
   optimizedImages: {
     optimizeImages: true,
