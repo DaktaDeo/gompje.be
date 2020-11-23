@@ -73,6 +73,8 @@ dist
 
 # vuepress build output
 .vuepress/dist
+# font awesom icons and other resources
+.library/
 
 # Serverless directories
 .serverless
@@ -88,3 +90,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+cache/
+static/browserconfig.xml

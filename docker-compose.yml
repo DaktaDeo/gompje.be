@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  nginx:
+    build: .
+    ports:
+      - "5000:5000"
+      - "5050:5050"
+    container_name: daktadeo-nuxt

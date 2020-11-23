@@ -1,6 +1,11 @@
+import webpack from 'webpack'
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
+
+  // https://stackoverflow.com/questions/58205391/nuxtjs-use-asyncdata-method-in-layout-or-component
+  fetchOnServer: false,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -30,6 +35,10 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://marquez.co/docs/nuxt-optimized-images/
+    '@aceforth/nuxt-optimized-images',
+    // https://github.com/nuxt-community/svg-module
+    '@nuxtjs/svg'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -38,14 +47,87 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // https://github.com/nuxt-community/modules/tree/master/packages/browserconfig
+    '@nuxtjs/browserconfig',
+    // https://image.nuxtjs.org/
+    '@nuxt/image',
+    // https://github.com/nuxt-community/device-module
+    '@nuxtjs/device',
+    // https://github.com/nuxt-community/robots-module
+    '@nuxtjs/robots',
+    // https://github.com/nuxt-community/sitemap-module#dev
+    '@nuxtjs/sitemap',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  browserconfig: {
+    TileColor: '#fff',
+    square150x150logo: { '@': { src: 'icon.png' } },
+  },
+
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        // global modules
+        _: 'lodash',
+      }),
+    ],
+  },
+  optimizedImages: {
+    optimizeImages: true,
+    handleImages: ['jpeg', 'jpg', 'png'],
+  },
+  image: {
+    sizes: [320, 420, 768, 1024, 1200],
+    presets: [
+      {
+        name: 'avatar',
+        modifiers: {
+          format: 'jpg',
+          width: 50,
+          height: 50,
+        },
+      },
+      {
+        name: 'jpg-cover',
+        modifiers: {
+          fit: 'cover',
+          format: 'jpg',
+          width: 300,
+          height: 300,
+        },
+      },
+      {
+        name: 'jpg-featured',
+        modifiers: {
+          fit: 'inside',
+          format: 'jpg',
+          width: 1200,
+          height: 1200,
+        },
+      },
+      {
+        name: 'jpg-thumbnail',
+        modifiers: {
+          fit: 'inside',
+          format: 'jpg',
+          width: 80,
+          height: 80,
+        },
+      },
+    ],
+  },
+  sitemap: [
+    {
+      hostname: 'https://gompje.be',
+      gzip: true,
+      i18n: false,
+    }
+  ],
 }

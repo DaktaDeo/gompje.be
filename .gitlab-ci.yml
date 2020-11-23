@@ -1,0 +1,137 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: "normal"
+  KUBERNETES_VERSION: 1.14.6
+  DOCKER_DRIVER: overlay2
+  ROLLOUT_RESOURCE_TYPE: deployment
+  INCREMENTAL_ROLLOUT_MODE: manual
+  POSTGRES_ENABLED: "false"
+  DATABASE_URL: ""
+  AUTO_DEVOPS_POSTGRES_CHANNEL: 2
+  POSTGRES_VERSION: "9.6.16"
+
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - dist/
+
+stages:
+  - prepare
+  - assets
+  - build
+  - test
+  - deploy
+  - review
+  - dast
+  - staging
+  - canary
+  - production
+  - production_manual
+  - incremental rollout 10%
+  - incremental rollout 25%
+  - incremental rollout 50%
+  - incremental rollout 100%
+  - performance
+  - cleanup
+
+include:
+  - template: Jobs/Code-Quality.gitlab-ci.yml
+  - template: Jobs/Deploy.gitlab-ci.yml
+  - template: Jobs/Browser-Performance-Testing.gitlab-ci.yml
+
+generate_dev:
+  image: node:alpine3.12
+  stage: build
+  before_script:
+    - apk add autoconf automake py-pip libtool make tiff jpeg zlib zlib-dev
+    - apk add pkgconf nasm file gcc musl-dev bash g++ libc6-compat libjpeg-turbo-dev libpng-dev
+  script:
+    - yarn --version
+    - yarn install --frozen-lockfile --non-interactive  --ignore-engines
+    - yarn generate
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 2 hrs 20 min
+    when: always
+  except:
+    - master
+
+generate:
+  image: node:alpine3.12
+  stage: build
+  before_script:
+    - apk add autoconf automake py-pip libtool make tiff jpeg zlib zlib-dev
+    - apk add pkgconf nasm file gcc musl-dev bash g++ libc6-compat libjpeg-turbo-dev libpng-dev
+  script:
+    - yarn --version
+    - yarn install --frozen-lockfile --non-interactive  --ignore-engines
+    - yarn generate --fail-on-error
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 2 hrs 20 min
+    when: always
+  only:
+    - master
+
+building:
+  stage: deploy
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-build-image/master:stable"
+  services:
+    - docker:19.03.1-dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  script:
+    - |
+      if [[ -z "$CI_COMMIT_TAG" ]]; then
+        export CI_APPLICATION_REPOSITORY=${CI_APPLICATION_REPOSITORY:-$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG}
+        export CI_APPLICATION_TAG=${CI_APPLICATION_TAG:-$CI_COMMIT_SHA}
+      else
+        export CI_APPLICATION_REPOSITORY=${CI_APPLICATION_REPOSITORY:-$CI_REGISTRY_IMAGE}
+        export CI_APPLICATION_TAG=${CI_APPLICATION_TAG:-$CI_COMMIT_TAG}
+      fi
+    - |
+      if ! docker info &>/dev/null; then
+        if [ -z "$DOCKER_HOST" ] && [ "$KUBERNETES_PORT" ]; then
+          export DOCKER_HOST='tcp://localhost:2375'
+        fi
+      fi
+    - |
+      if [[ -n "$CI_REGISTRY" && -n "$CI_REGISTRY_USER" ]]; then
+        echo "Logging to GitLab Container Registry with CI credentials..."
+        docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+      fi
+    - echo "Building Dockerfile-based application..."
+    - |
+      build_secret_args=''
+      if [[ -n "$AUTO_DEVOPS_BUILD_IMAGE_FORWARDED_CI_VARIABLES" ]]; then
+        build_secret_file_path=/tmp/auto-devops-build-secrets
+        "$(dirname "$0")"/export-build-secrets > "$build_secret_file_path"
+        build_secret_args="--secret id=auto-devops-build-secrets,src=$build_secret_file_path"
+
+        echo 'Activating Docker BuildKit to forward CI variables with --secret'
+        export DOCKER_BUILDKIT=1
+      fi
+    #     # shellcheck disable=SC2154 # missing variable warning for the lowercase variables
+    #     # shellcheck disable=SC2086 # double quoting for globbing warning for $build_secret_args and $AUTO_DEVOPS_BUILD_IMAGE_EXTRA_ARGS
+    - |
+      docker build \
+      $build_secret_args \
+      --build-arg BUILDPACK_URL="$BUILDPACK_URL" \
+      --build-arg HTTP_PROXY="$HTTP_PROXY" \
+      --build-arg http_proxy="$http_proxy" \
+      --build-arg HTTPS_PROXY="$HTTPS_PROXY" \
+      --build-arg https_proxy="$https_proxy" \
+      --build-arg FTP_PROXY="$FTP_PROXY" \
+      --build-arg ftp_proxy="$ftp_proxy" \
+      --build-arg NO_PROXY="$NO_PROXY" \
+      --build-arg no_proxy="$no_proxy" \
+      $AUTO_DEVOPS_BUILD_IMAGE_EXTRA_ARGS \
+      --tag "$CI_APPLICATION_REPOSITORY:$CI_APPLICATION_TAG" .
+    - echo "Pushing to registry..."
+    - docker push "$CI_APPLICATION_REPOSITORY:$CI_APPLICATION_TAG"
+  dependencies:
+    - generate
+    - generate_dev
