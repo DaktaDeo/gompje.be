@@ -39,6 +39,12 @@ export default {
     '@aceforth/nuxt-optimized-images',
     // https://github.com/nuxt-community/svg-module
     '@nuxtjs/svg',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-26421992-1',
+      },
+    ],
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

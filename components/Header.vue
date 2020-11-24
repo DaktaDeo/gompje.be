@@ -14,11 +14,15 @@
           </a>
         </div>
         <div>
-          <a
-            href="/"
-            class="block text-black no-underline font-bold text-xl lg:text-3xl font-extrabold leading-none lg:leading-tight"
-            >Veerle Deschepper aka Gompje</a
+          <div
+            class="block text-black no-underline font-bold font-extrabold leading-none lg:leading-tight flex space-x-2 content-center"
           >
+            <div class="block text-xl lg:text-3xl uppercase">Gompje</div>
+            <div class="block">===</div>
+            <div class="block text-l lg:text-2xl uppercase">
+              Veerle Deschepper
+            </div>
+          </div>
           <div
             class="flex mt-3 lg:mt-4 uppercase tracking-wide text-xs space-x-6 ml-1"
           >
