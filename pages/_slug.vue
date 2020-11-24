@@ -14,8 +14,9 @@
 <script>
 export default {
   async asyncData(context) {
-    const { $content } = context
-    const page = await $content('index').fetch()
+    const { $content, params } = context
+    const slug = params.slug
+    const page = await $content(slug).fetch()
 
     return {
       page,
