@@ -1,7 +1,7 @@
 <template>
-  <div class="py-8 lg:py-16 px-6 md:px-16 lg:px-24">
+  <div class="px-6 md:px-16 lg:px-24">
     <div class="relative z-20 flex justify-between items-center">
-      <div class="flex md:block lg:flex items-center max-w-full">
+      <div class="flex md:block lg:flex items-center w-screen">
         <div
           class="mb-0 md:mb-4 lg:mb-0 flex flex-no-shrink pr-4 md:pr-6 lg:pr-12"
         >
@@ -20,15 +20,15 @@
             >Veerle Deschepper aka Gompje</a
           >
           <div
-            class="hidden md:flex mt-3 lg:mt-4 uppercase tracking-wide text-xs spaced-x-6"
+            class="flex mt-3 lg:mt-4 uppercase tracking-wide text-xs space-x-6 ml-1"
           >
             <nuxt-link
               v-for="item in navlinks"
               :key="item.id"
               :to="item.to"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
+              class="text-gray-600 font-semibold no-underline hover:text-black"
             >
-              {{ item.name }}
+              [{{ item.name }}]
             </nuxt-link>
           </div>
         </div>

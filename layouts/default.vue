@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="px-4 sm:px-6 lg:px-8 py5 md:py-4">
     <Socials :socials="socials.follow"></Socials>
     <Header :nav="nav.header" :nav-mobile="nav.mobile"></Header>
-    <Nuxt />
+    <div class="lg:pl-56 mt-12">
+      <Nuxt />
+    </div>
   </div>
 </template>
 

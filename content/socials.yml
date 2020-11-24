@@ -1,7 +1,7 @@
 follow:
   - name: twitter
-    title: Follow us on Twitter
-    link: 'https://twitter.com/intent/follow?screen_name=daktadeo'
+    title: My Twitter
+    link: 'https://twitter.com/intent/follow?screen_name=iAmGompje'
     weight: 10
   - name: facebook
     title: Like us on Facebook
