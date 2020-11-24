@@ -22,46 +22,19 @@
           <div
             class="hidden md:flex mt-3 lg:mt-4 uppercase tracking-wide text-xs spaced-x-6"
           >
-            <a
-              href="/articles"
+            <nuxt-link
+              v-for="item in navlinks"
+              :key="item.id"
+              :to="item.to"
               class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Articles</a
             >
-            <a
-              href="/talks"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Talks</a
-            >
-            <a
-              href="/screencasts"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Screencasts</a
-            >
-            <a
-              href="/podcast"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Podcast</a
-            >
-            <a
-              href="/courses"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Courses</a
-            >
-            <a
-              href="/projects"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Projects</a
-            >
-            <a
-              href="/journal"
-              class="text-grey-dark font-semibold no-underline hover:text-black"
-              >Journal</a
-            >
+              {{ item.name }}
+            </nuxt-link>
           </div>
         </div>
       </div>
       <div class="block md:hidden">
-        <button class="block" @click="toggleMenu">
+        <button class="block" @click.prevent="menuOpen = !menuOpen">
           <svg
             style="display: block"
             :class="menuOpen ? 'hidden' : 'block'"
@@ -87,35 +60,18 @@
         </button>
       </div>
     </div>
-    <div
-      style="display: none"
-      :class="menuOpen ? 'block' : 'hidden'"
-      class="md:hidden z-10 bg-white fixed pin pt-24"
-    >
+    <div v-if="menuOpen" class="md:hidden z-10 bg-white fixed pin pt-24">
       <div
         class="spaced-y-8 overflow-y-auto pt-6 pb-8 px-12 max-h-full overflow-y-auto"
       >
-        <a href="/articles" class="block text-black font-bold no-underline"
-          >Articles</a
+        <nuxt-link
+          v-for="item in navlinksMobile"
+          :key="item.id"
+          :to="item.to"
+          class="text-black font-bold no-underline"
         >
-        <a href="/talks" class="block text-black font-bold no-underline"
-          >Talks</a
-        >
-        <a href="/screencasts" class="block text-black font-bold no-underline"
-          >Screencasts</a
-        >
-        <a href="/podcast" class="block text-black font-bold no-underline"
-          >Podcast</a
-        >
-        <a href="/courses" class="block text-black font-bold no-underline"
-          >Courses</a
-        >
-        <a href="/projects" class="block text-black font-bold no-underline"
-          >Projects</a
-        >
-        <a href="/journal" class="block text-black font-bold no-underline"
-          >Journal</a
-        >
+          {{ item.name }}
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -123,6 +79,45 @@
 
 <script>
 export default {
-  name: 'Header',
+  props: {
+    nav: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    navMobile: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      activeItem: null,
+      menuOpen: false,
+    }
+  },
+  computed: {
+    navlinks() {
+      return this.getNavItems(this.nav)
+    },
+    navlinksMobile() {
+      return this.getNavItems(this.navMobile)
+    },
+  },
+  watch: {
+    $route() {
+      this.activeItem = null
+      this.isMobile = false
+    },
+  },
+  methods: {
+    getNavItems(lst) {
+      return _.filter(_.sortBy(lst, 'weight'), (item) => !_.isEmpty(item.to))
+    },
+    changeMenu(item) {
+      this.activeItem = this.activeItem === item.id ? null : item.id
+    },
+  },
 }
 </script>

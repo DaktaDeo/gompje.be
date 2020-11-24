@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header></Header>
+    <Socials :socials="socials.follow"></Socials>
+    <Header :nav="nav.header" :nav-mobile="nav.mobile"></Header>
     <Nuxt />
   </div>
 </template>
@@ -11,8 +12,22 @@ body {
 }
 </style>
 <script>
-import Header from '~/components/Header'
+import Socials from '@/components/Socials'
+import Header from '@/components/Header'
 export default {
-  components: { Header },
+  components: { Socials, Header },
+  async fetch() {
+    this.socials = await this.$content(`socials`).fetch()
+    this.nav = await this.$content(`nav`).fetch()
+  },
+  data() {
+    return {
+      socials: [],
+      nav: [],
+    }
+  },
+  created() {
+    this.$fetch()
+  },
 }
 </script>

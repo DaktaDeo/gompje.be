@@ -1,0 +1,35 @@
+header:
+  - name: Articles
+    id: 11
+    weight: 0
+    to: '/articles'
+  - name: Projects
+    id: 12
+    weight: 10
+    to: '/projects'
+  - name: Nantucket
+    id: 13
+    weight: 20
+    to: '/nantucket'
+  - name: Journal
+    id: 14
+    weight: 30
+    to: '/journal'
+mobile:
+  - name: Articles
+    id: 11
+    weight: 0
+    to: '/articles'
+  - name: Projects
+    id: 12
+    weight: 10
+    to: '/projects'
+  - name: Nantucket
+    id: 13
+    weight: 20
+    to: '/nantucket'
+  - name: Journal
+    id: 14
+    weight: 30
+    to: '/journal'
+footer: []

@@ -1,0 +1,25 @@
+follow:
+  - name: twitter
+    title: Follow us on Twitter
+    link: 'https://twitter.com/intent/follow?screen_name=daktadeo'
+    weight: 10
+  - name: facebook
+    title: Like us on Facebook
+    link: 'https://www.facebook.com/DaktaDeo.be/'
+    weight: 20
+  - name: linkedin
+    title: Follow us on LinkedIn
+    link: 'https://www.linkedin.com/company/daktadeo'
+    weight: 30
+  - name: instagram
+    title: Follow us on Instagram
+    link: 'https://www.instagram.com/daktadeo.be/'
+    weight: 40
+  - name: gitlab
+    title: View Veerle's profile on Gitlab
+    link: 'https://gitlab.com/Gompje'
+    weight: 50
+  - name: github
+    title: View our Github
+    link: 'https://github.com/Gompje'
+    weight: 51
