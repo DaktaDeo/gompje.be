@@ -6,6 +6,14 @@
       </h1>
       <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
         <nuxt-content :document="page" />
+        <nuxt-link
+          v-for="doc in list"
+          :key="doc.slug"
+          :to="doc.path"
+          class="block"
+        >
+          {{ doc.slug }}
+        </nuxt-link>
       </div>
     </article>
   </div>
@@ -14,11 +22,13 @@
 <script>
 export default {
   async asyncData(context) {
-    const { $content, params } = context
-    const page = await $content(params.slug).fetch()
+    const { $content } = context
+    const page = await $content('reviews/index').fetch()
+    const list = await $content('reviews').without(['body']).fetch()
 
     return {
       page,
+      list,
     }
   },
 }

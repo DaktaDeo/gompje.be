@@ -7,6 +7,10 @@ header:
     id: 12
     weight: 10
     to: '/projects'
+  - name: Reviews
+    id: 15
+    weight: 8
+    to: '/reviews'
   - name: Nantucket
     id: 13
     weight: 20
@@ -32,4 +36,8 @@ mobile:
     id: 14
     weight: 30
     to: '/journal'
+  - name: Reviews
+    id: 15
+    weight: 8
+    to: '/reviews'
 footer: []

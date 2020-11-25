@@ -2,10 +2,10 @@
   <div class="bg-primary-color-light flex flex-col h-screen justify-between">
     <Header :nav="nav.header" :nav-mobile="nav.mobile"></Header>
     <div
-      class="px-4 py-4 md:py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl"
+      class="px-4 py-4 md:py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl flex-1"
     >
       <div class="antialiased text-gray-900">
-        <div class="lg:pl-56 md:mt-12">
+        <div class="lg:pl-56">
           <Nuxt />
         </div>
       </div>
