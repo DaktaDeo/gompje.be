@@ -9,7 +9,7 @@ You want my name?
 
 Oh! Yes. 😊
 
-Lets start that again, shall we?
+Let's start that again, shall we?
 
 Hi there, 👋 <br/>I’m Veerle Deschepper, a full-stack developer, entrepreneur, writer, 
 photographer, reader, painter, and I love to create Art – every tiny bit of it. I’m also a lego, geocaching, 
