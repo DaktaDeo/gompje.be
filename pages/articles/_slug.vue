@@ -1,6 +1,6 @@
 <template>
   <div v-if="page">
-    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
       <h1>
         {{ page.title }}
       </h1>

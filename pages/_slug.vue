@@ -4,7 +4,7 @@
       <h1 class="text-2xl font-extrabold text-black mb-4">
         {{ page.title }}
       </h1>
-      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
         <nuxt-content :document="page" />
       </div>
     </article>

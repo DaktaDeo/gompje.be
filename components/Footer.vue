@@ -12,6 +12,9 @@
           <a href="https://daktadeo.be?ref=gompje.be">DaktaDeo.</a> 2011–{{
             new Date().getFullYear()
           }}. <br /><license></license>
+          <nuxt-link to="/terms" class="ml-2 underline">
+            Terms & Conditions
+          </nuxt-link>
         </p>
       </div>
     </div>
