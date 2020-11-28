@@ -111,8 +111,8 @@ export default {
         modifiers: {
           fit: 'cover',
           format: 'jpg',
-          width: 300,
-          height: 300,
+          width: 320,
+          height: 240,
         },
       },
       {
