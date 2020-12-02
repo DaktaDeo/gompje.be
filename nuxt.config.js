@@ -22,7 +22,11 @@ export default {
   css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~plugins/filters.js'],
+  plugins: [
+    '~plugins/markdown.js',
+    '~plugins/filters.js',
+    '~plugins/vue-scrollactive.js',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -74,7 +78,13 @@ export default {
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {},
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css',
+      },
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
@@ -142,4 +152,10 @@ export default {
       i18n: false,
     },
   ],
+  googleFonts: {
+    families: {
+      'DM+Sans': true,
+      'DM+Mono': true,
+    },
+  },
 }
