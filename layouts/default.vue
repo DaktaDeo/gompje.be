@@ -1,14 +1,12 @@
 <template>
-  <div class="bg-primary-color-light flex flex-col h-screen justify-between">
+  <div
+    class="bg-primary-color-light flex flex-col min-h-screen justify-between h-full"
+  >
     <Header :nav="nav.header" :nav-mobile="nav.mobile"></Header>
     <div
-      class="px-4 py-4 md:py-10 max-w-3xl sm:px-6 sm:py-12 lg:max-w-4xl lg:py-4 lg:px-8 xl:max-w-6xl flex-1"
+      class="px-4 py-6 sm:px-6 antialiased text-gray-900 min-h-full flex-1 flex-col"
     >
-      <div class="antialiased text-gray-900">
-        <div class="lg:pl-56">
-          <Nuxt />
-        </div>
-      </div>
+      <Nuxt />
     </div>
     <Footer :socials="socials.follow" :nav="nav.footer"></Footer>
   </div>

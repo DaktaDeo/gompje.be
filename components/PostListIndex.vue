@@ -1,7 +1,16 @@
 <template>
-  <div v-if="page">
-    <div class="max-w-md prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
-      <h1 class="text-xl font-extrabold text-black mb-4">{{ page.title }}</h1>
+  <div v-if="page" class="relative px-4 sm:px-6 lg:px-8">
+    <div class="text-lg max-w-prose mx-auto">
+      <h1>
+        <span
+          class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase"
+          >{{ page.section }}</span
+        >
+        <span
+          class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+          >{{ page.title }}</span
+        >
+      </h1>
 
       <div class="text-lg text-grey-darkest leading-normal spaced-y-6">
         <nuxt-content :document="page" />
