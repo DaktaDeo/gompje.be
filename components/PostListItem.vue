@@ -17,11 +17,7 @@
       v-if="doc.blurb"
       class="text-grey-darkest text-base leading-normal mt-1"
     >
-      <nuxt-image
-        :src="`+jpg-cover:${doc.blurb.image}`"
-        width="300"
-        height="300"
-      />
+      <nuxt-image :src="`+jpg-featured:${doc.blurb.image}`" />
       <p>{{ doc.blurb.text }}</p>
     </div>
     <div

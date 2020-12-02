@@ -35,7 +35,7 @@ and there it was:
 That one file that caused the whole thing to crash and eating my time. If only Apple would provide an easy way to find these errors instead of giving the same &#8216;friendly&#8217; message over and over. 🙄  
 I deleted this hidden system file, restarted the backup &#8211; and..
 
-<img class="aligncenter size-full wp-image-124" src="https://i2.wp.com/blog.gompje.be/wp-content/uploads/2017/03/Spongebob-Later-e1506626423738.jpg?resize=640%2C280&#038;ssl=1" alt="" width="640" height="280" srcset="https://i0.wp.com/gompje.be/wp-content/uploads/2017/03/Spongebob-Later-e1506626423738.jpg?w=640&ssl=1 640w, https://i0.wp.com/gompje.be/wp-content/uploads/2017/03/Spongebob-Later-e1506626423738.jpg?resize=300%2C131&ssl=1 300w, https://i0.wp.com/gompje.be/wp-content/uploads/2017/03/Spongebob-Later-e1506626423738.jpg?resize=150%2C66&ssl=1 150w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /> 
+<nuxt-image src="/img/spongebob-later.jpg"></nuxt-image>
 
 ..it&#8217;s almost done. 🎉
 

@@ -1467,15 +1467,17 @@
     html-minifier "^4.0.0"
     node-html-parser "^1.3.1"
 
-"@nuxt/image@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@nuxt/image/-/image-0.0.3.tgz#30e32bf504b528b485f39b586427954845e8b9d3"
-  integrity sha512-JZvUPYlqitrcvHEW5Pewln9uSFEtCA8fM9rSK0K1rbpbGTBOd35Tyv0xRTYREjFPhWIQ2l0mRi21B0+SCid4jw==
+"@nuxt/image@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@nuxt/image/-/image-0.0.4.tgz#d11d9bb821466dd1ecac7960d40fc091dce299f9"
+  integrity sha512-REnPZv5UMvwefZ1A2vybDUxVXO2cCFr0SoE/N+R4IuG4DhK5lqo3qOUm9zed21F9elw17M/oZW9OKIde0qcwEQ==
   dependencies:
-    hasha "^5.2.1"
-    ipx "^0.3.2"
+    defu "^3.2.1"
+    hasha "^5.2.2"
+    image-meta "^0.0.1"
+    ipx "^0.4.0"
     node-fetch "^2.6.1"
-    upath "^1.2.0"
+    upath "^2.0.1"
 
 "@nuxt/loading-screen@^2.0.2":
   version "2.0.3"
@@ -4939,7 +4941,7 @@ defu@^2.0.4:
   resolved "https://registry.yarnpkg.com/defu/-/defu-2.0.4.tgz#09659a6e87a8fd7178be13bd43e9357ebf6d1c46"
   integrity sha512-G9pEH1UUMxShy6syWk01VQSRVs3CDWtlxtZu7A+NyqjxaCA4gSlWAKDBx6QiUEKezqS8+DUlXLI14Fp05Hmpwg==
 
-defu@^3.1.0, defu@^3.2.2:
+defu@^3.1.0, defu@^3.2.1, defu@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/defu/-/defu-3.2.2.tgz#be20f4cc49b9805d54ee6b610658d53894942e97"
   integrity sha512-8UWj5lNv7HD+kB0e9w77Z7TdQlbUYDVWqITLHNqFIn6khrNHv5WQo38Dcm1f6HeNyZf0U7UbPf6WeZDSdCzGDQ==
@@ -6928,7 +6930,7 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
-hasha@^5.2.1, hasha@^5.2.2:
+hasha@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/hasha/-/hasha-5.2.2.tgz#a48477989b3b327aea3c04f53096d816d97522a1"
   integrity sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==
@@ -7274,6 +7276,11 @@ ignore@^5.1.1, ignore@^5.1.4, ignore@^5.1.8:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==
 
+image-meta@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/image-meta/-/image-meta-0.0.1.tgz#0f6f708e6d68ea796a977dcae3223019ee2b3eca"
+  integrity sha512-FhTB6WW/zfswIFQwjItrisL/Pt/aKbMCAkVdDtdfsaWwo6QwhpM7XMdwtDw8qs5y2IZsHcQ7TPG/JznJYVphSg==
+
 imagemin-gifsicle@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/imagemin-gifsicle/-/imagemin-gifsicle-7.0.0.tgz#1a7ab136a144c4678657ba3b6c412f80805d26b0"
@@ -7493,10 +7500,10 @@ ipaddr.js@1.9.1:
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
   integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
 
-ipx@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/ipx/-/ipx-0.3.2.tgz#c8e32b7563466cad51afacfda185f9d89fd6fe55"
-  integrity sha512-2VJNYzWr0yn9bjhQSk0V/AAJQPZMu1Zg16BOhwy0LfOYr5sPei5fHLuDSF0b9DF5Fna0CFf54hYYAYZKPCSPkw==
+ipx@^0.4.0:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/ipx/-/ipx-0.4.6.tgz#75525b5f120ed70a7b1e07c41de236469cb7c326"
+  integrity sha512-cYlVthic3Gxt0mtglLZN0SPY2sqDAn+KkqZWpqK4bjfkGs5R1mEa71lOqRt02VW1LgsiFV52aLUgB2QGfNnKow==
   dependencies:
     connect "^3.7.0"
     consola "^2.15.0"
@@ -7505,6 +7512,7 @@ ipx@^0.3.2:
     etag "^1.8.1"
     fs-extra "^9.0.1"
     is-valid-path "^0.1.1"
+    node-fetch "^2.6.1"
     recursive-readdir "^2.2.2"
     sharp "^0.26.0"
 
@@ -14037,12 +14045,12 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-upath@^1.1.1, upath@^1.2.0:
+upath@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/upath/-/upath-1.2.0.tgz#8f66dbcd55a883acdae4408af8b035a5044c1894"
   integrity sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==
 
-upath@^2.0.0:
+upath@^2.0.0, upath@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/upath/-/upath-2.0.1.tgz#50c73dea68d6f6b990f51d279ce6081665d61a8b"
   integrity sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==

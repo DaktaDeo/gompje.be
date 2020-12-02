@@ -1,16 +1,11 @@
 <template>
-  <div v-if="page">
-    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
-      <h1>
-        {{ page.title }}
-      </h1>
-      <nuxt-content :document="page" />
-    </article>
-  </div>
+  <Post :page="page" section="reviews"></Post>
 </template>
 
 <script>
+import Post from '@/components/Post'
 export default {
+  components: { Post },
   async asyncData(context) {
     const { $content, params } = context
     const page = await $content(`/reviews/${params.slug}`).fetch()

@@ -26,7 +26,13 @@ Google Drive isn&#8217;t a folder anymore. Filestream its a cleverly mapped netw
 
 ### The &#8216;Google says&#8217; Solution
 
-[Google says you can change the cache folders location][1] by manipulating the plist file and setting a flag. Or in the [registery on windows][2]. You cannot edit plist files easily, this has to be done with special terminal commands. You have to do things like this: `sudo defaults write /Library/Preferences/com.google.drivefs.settings DefaultMountPoint '/Google Drive'`. Then you need to at least restart Google Drive or better yet, the complete computer&#8230; to see it doesn&#8217;t work.
+[Google says you can change the cache folders location][1] by manipulating the plist file and setting a flag. Or in the [registery on windows][2]. You cannot edit plist files easily, this has to be done with special terminal commands. You have to do things like this:
+
+```shell
+$ sudo defaults write /Library/Preferences/com.google.drivefs.settings DefaultMountPoint '/Google Drive'
+``` 
+
+Then you need to at least restart Google Drive or better yet, the complete computer&#8230; to see it doesn&#8217;t work.
 
 One problem I found is that the variables that are listed in Googles documentation are different than those listed in the plist file. Another was that when I tried to change the basepath var, to move the complete Google app folder, it just gets overwritten when Google Drive starts again. Maybe I should have rebooted everything but at that time I could not.
 
@@ -34,9 +40,10 @@ Anyway this is way to difficult to remember in 6 months and even more so to main
 
 ### My Solution
 
-<span style="background-color: yellow; display: inline-block;">A symbolic link. That&#8217;s it. I just copied the cache folder to my other ssd, renamed the original one and created a symbolic link to the new one.</span> Like this:<a href="https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?ssl=1" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title="">
+<span style="background-color: yellow; display: inline-block;">A symbolic link. That&#8217;s it. I just copied the cache folder to my other ssd, renamed the original one and created a symbolic link to the new one.</span> Like this:
 
-<img class="aligncenter wp-image-446 size-large" src="https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?resize=1024%2C149&#038;ssl=1" alt="" width="1024" height="149" srcset="https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?resize=1024%2C149&ssl=1 1024w, https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?resize=300%2C44&ssl=1 300w, https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?resize=768%2C112&ssl=1 768w, https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?resize=150%2C22&ssl=1 150w, https://i2.wp.com/gompje.be/wp-content/uploads/2018/06/Screen-Shot-2018-06-06-at-16.54.24.png?w=2048&ssl=1 2048w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /> </a> 
+<nuxt-image src="/img/screenshot-link-google-drive.png"></nuxt-image>
+
 
 Yes I left to old folder on the drive, just for now. This way I can easily check if the old folder is getting used or not, and if this failed I wouldn&#8217;t have to transfer a lot of data again.  Symlinks are basically just direct pointers from one point to another, it should just work. That said there is software like Apache were you have to specifically enable it, and iTunes well just refused to work after I tried it that one time.
 
