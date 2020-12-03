@@ -1,30 +1,23 @@
 <template>
-  <div v-if="page">
-    <article>
-      <h1 class="text-2xl font-extrabold text-black mb-4">
-        {{ page.title }}
-      </h1>
-      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
-        <nuxt-content :document="page" />
-        <nuxt-link
-          v-for="doc in list"
-          :key="doc.slug"
-          :to="doc.path"
-          class="block"
-        >
-          {{ doc.slug }}
-        </nuxt-link>
-      </div>
-    </article>
-  </div>
+  <post-list-index
+    :posts="list"
+    :page="page"
+    read-more-text="Read this scribble →"
+  ></post-list-index>
 </template>
 
 <script>
+import PostListIndex from '@/components/PostListIndex'
 export default {
+  components: { PostListIndex },
   async asyncData(context) {
     const { $content } = context
     const page = await $content('nantucket/index').fetch()
-    const list = await $content('nantucket').without(['body']).fetch()
+    const list = await $content('nantucket')
+      .where({ slug: { $ne: 'index' } })
+      .without(['body'])
+      .sortBy('date', 'desc')
+      .fetch()
 
     return {
       page,
