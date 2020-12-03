@@ -34,5 +34,6 @@ module.exports = {
       },
     ],
     'selector-nested-pattern': '^&',
+    'no-descending-specificity': null,
   },
 }

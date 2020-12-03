@@ -40,7 +40,7 @@ Anyway this is way to difficult to remember in 6 months and even more so to main
 
 ### My Solution
 
-<span style="background-color: yellow; display: inline-block;">A symbolic link. That&#8217;s it. I just copied the cache folder to my other ssd, renamed the original one and created a symbolic link to the new one.</span> Like this:
+<div class="rounded-md bg-opacity-25 bg-purple-600 py-4 px-6 mb-3 flex justify-center items-center">A symbolic link. That&#8217;s it. I just copied the cache folder to my other ssd, renamed the original one and created a symbolic link to the new one.</div> Like this:
 
 <nuxt-image src="/img/screenshot-link-google-drive.png"></nuxt-image>
 

@@ -67,6 +67,10 @@
 & pre[class*="language-"] {
     /* Make pre static so the relative goes to the parent (.nuxt-content-highlight) */
     @apply bg-gray-800 static;
+
+    //white-space : pre-wrap !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
   }
 
 /* Add top padding to code blocks with filename */
