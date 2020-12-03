@@ -18,7 +18,7 @@
         Published &rarr; {{ page.date | formatDateTimeLong }}
       </div>
 
-      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-lg mx-auto">
         <nuxt-content :document="page" />
       </div>
     </article>
