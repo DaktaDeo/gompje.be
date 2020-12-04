@@ -5,6 +5,5 @@ WORKDIR /var/www/html
 
 COPY  dist/ /var/www/html/dist
 
-COPY  cache/ /var/www/html/cache
 COPY  .nuxt/ /var/www/html/.nuxt
 COPY  nuxt.config.js /var/www/html/nuxt.config.js 
