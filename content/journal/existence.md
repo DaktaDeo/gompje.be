@@ -8,3 +8,8 @@ blurb:
     text: ''
     image: '/img/definition-of-existence.png'
 ---
+<nuxt-image
+        :src="`+jpg-featured:/img/definition-of-existence.png`"
+        width="720"
+        height="405"
+      />
