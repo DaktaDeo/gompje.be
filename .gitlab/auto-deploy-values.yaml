@@ -36,8 +36,8 @@ service:
   url: http://my.host.com/
   additionalHosts:
   commonName:
-  externalPort: 5000
-  internalPort: 5000
+  externalPort: 80
+  internalPort: 80
 ingress:
   tls:
     enabled: true
