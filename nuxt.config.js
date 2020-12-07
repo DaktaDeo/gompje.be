@@ -92,6 +92,12 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  router: {
+    prefetchPayloads: true,
+    prefetchLinks: true,
+    trailingSlash: undefined,
+  },
+
   browserconfig: {
     TileColor: '#fff',
     square150x150logo: { '@': { src: 'apple-touch-icon.png' } },
