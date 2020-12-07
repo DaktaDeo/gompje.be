@@ -87,6 +87,7 @@ export default {
     '@nuxtjs/robots',
     // https://github.com/nuxt-community/sitemap-module#dev
     '@nuxtjs/sitemap',
+    '~/modules/redirect-me/module.js',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -170,6 +171,11 @@ export default {
       hostname: 'https://gompje.be',
       gzip: true,
       i18n: false,
+    },
+  ],
+  redirect: [
+    {
+      hostname: 'https://gompje.be',
     },
   ],
 }
