@@ -2,6 +2,7 @@
 title: We all have super powers.
 author: Veerle Deschepper
 date: 2017-09-30T15:13:16+00:00
+url: '/we-all-have-super-powers/'
 tags:
   - Holocaust
   - Psychology

@@ -2,6 +2,7 @@
 title: 'Propaganda Games: Sesame Credit – The True Danger of Gamification'
 author: Veerle Deschepper
 date: 2017-09-29T16:00:00+00:00
+url: '/propaganda-games-sesame-credit-the-true-danger-of-gamification/'
 tags:
   - dystopian
   - Gamification

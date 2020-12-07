@@ -3,6 +3,7 @@ title: 'K8s research & deploy → the aftermath.. 😅'
 author: Veerle Deschepper
 type: post
 date: 2019-05-18T21:22:58+00:00
+url: '/k8s-research-deploy-the-aftermath/'
 tags:
   - cloud
   - devOPS

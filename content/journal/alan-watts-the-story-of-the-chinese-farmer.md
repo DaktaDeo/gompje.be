@@ -2,6 +2,7 @@
 title: Alan Watts ~ The Story of the Chinese Farmer
 author: Veerle Deschepper
 date: 2016-11-22T20:31:14+00:00
+url: ''
 tags:
   - Alan Watts
   - Parable

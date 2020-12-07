@@ -7,7 +7,7 @@ featured_image: /wp-content/uploads/2018/05/img_0978.jpg
 categories:
   - Blog
   - Reviews
-
+url: '/testing-the-iphone-iclever-bk05-combo/'
 ---
 [go straight to the short review][1]
 

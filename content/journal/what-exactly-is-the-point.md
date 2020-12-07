@@ -7,7 +7,7 @@ tags:
   - opinion
 blurb:
     text: '<span class="font-mono text-red-500 text-sm">round-around-we-go-and-back-again</span> ~ When security gets in the way of efficient communication.'
-
+url: '/what-exactly-is-the-point-🤨/'
 ---
 Welp. I just got an e-mail with as message &#8220;you have a confidential message from x from Az Jan-Palfijn&#8221;. With a link. That link takes me to this page:
 
