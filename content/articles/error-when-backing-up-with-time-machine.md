@@ -35,7 +35,7 @@ and there it was:
 That one file that caused the whole thing to crash and eating my time. If only Apple would provide an easy way to find these errors instead of giving the same &#8216;friendly&#8217; message over and over. 🙄  
 I deleted this hidden system file, restarted the backup &#8211; and..
 
-<nuxt-image src="/img/spongebob-later.jpg"></nuxt-image>
+<nuxt-image src="/img/spongebob-later.jpg" width="737" height="319"></nuxt-image>
 
 ..it&#8217;s almost done. 🎉
 

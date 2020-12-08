@@ -11,7 +11,7 @@ url: '/testing-the-iphone-iclever-bk05-combo/'
 ---
 [go straight to the short review][1]
 
-<nuxt-image src="/img/sunny-bench-picknick-alone.jpg"></nuxt-image>
+<nuxt-image src="/img/sunny-bench-picknick-alone.jpg" width="2048" height="1536"></nuxt-image>
 
 What to do when you have a few minutes to spare before an appointment? Actually there are a lot of things I normally do but today I find myself sitting, alone, in the sun, in a very very busy cafeteria. I just had to share this sudden found bliss &#8211; and what better way to do that while testing my fairly new BK05 keyboard. Well a better way would be to enjoy the delicious food they serve here but.. its not time to eat yet.
 
