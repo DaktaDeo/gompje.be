@@ -4,7 +4,7 @@ author: Veerle Deschepper
 date:  2020-11-24T17:41:24+01:00
 ---
 
-[Part 1](index)
+<nuxt-link to="/">Part 1</nuxt-link>
 
 ### Community 
 Opensource is the way the world should work: all people working together to make it a better place.

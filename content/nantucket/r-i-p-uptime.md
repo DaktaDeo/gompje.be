@@ -10,6 +10,8 @@ categories:
   - Life as a web-developer
 
 ---
+
+
 > There comes a time  
 > When everything has to end  
 > The good, The bad  
@@ -24,6 +26,6 @@ categories:
 > 
 > R.I.P &#8211; we will remember 💐
 
-<img class="aligncenter size-full wp-image-224" src="https://i1.wp.com/gompje.be/wp-content/uploads/2018/04/Screen-Shot-2018-02-08-at-12.04.49.png?resize=1004%2C72&#038;ssl=1" alt="" width="1004" height="72" srcset="https://i1.wp.com/gompje.be/wp-content/uploads/2018/04/Screen-Shot-2018-02-08-at-12.04.49.png?w=1004&ssl=1 1004w, https://i1.wp.com/gompje.be/wp-content/uploads/2018/04/Screen-Shot-2018-02-08-at-12.04.49.png?resize=300%2C22&ssl=1 300w, https://i1.wp.com/gompje.be/wp-content/uploads/2018/04/Screen-Shot-2018-02-08-at-12.04.49.png?resize=768%2C55&ssl=1 768w, https://i1.wp.com/gompje.be/wp-content/uploads/2018/04/Screen-Shot-2018-02-08-at-12.04.49.png?resize=150%2C11&ssl=1 150w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /> 
+<nuxt-image class="mx-auto" src='/img/screenshot-uptime.png' width='1004' height='72'></nuxt-image>
 
 .. on to the next record!

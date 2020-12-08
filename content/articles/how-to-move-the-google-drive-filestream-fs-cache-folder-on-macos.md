@@ -42,7 +42,7 @@ Anyway this is way to difficult to remember in 6 months and even more so to main
 
 <div class="rounded-md bg-opacity-25 bg-purple-600 py-4 px-6 mb-3 flex justify-center items-center">A symbolic link. That&#8217;s it. I just copied the cache folder to my other ssd, renamed the original one and created a symbolic link to the new one.</div> Like this:
 
-<nuxt-image src="/img/screenshot-link-google-drive.png"></nuxt-image>
+<nuxt-image src="/img/screenshot-link-google-drive.png" width="2048" height="298"></nuxt-image>
 
 
 Yes I left to old folder on the drive, just for now. This way I can easily check if the old folder is getting used or not, and if this failed I wouldn&#8217;t have to transfer a lot of data again.  Symlinks are basically just direct pointers from one point to another, it should just work. That said there is software like Apache were you have to specifically enable it, and iTunes well just refused to work after I tried it that one time.

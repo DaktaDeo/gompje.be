@@ -17,8 +17,13 @@
       v-if="doc.blurb"
       class="text-grey-darkest text-base leading-normal mt-1"
     >
-      <nuxt-image :src="`+jpg-featured:${doc.blurb.image}`" />
-      <p>{{ doc.blurb.text }}</p>
+      <nuxt-image
+        v-if="doc.blurb.image"
+        :src="`+jpg-featured:${doc.blurb.image}`"
+        width="720"
+        height="405"
+      />
+      <p v-if="doc.blurb.text" v-html="doc.blurb.text"></p>
     </div>
     <div
       v-if="!doc.short"
