@@ -12,8 +12,21 @@
         >
       </h1>
 
+      <h2>
+        <span
+          class="my-3 block text-xl text-center leading-8 tracking-tight text-gray-600 sm:text-2xl"
+          >{{ page.subtitle }}</span
+        >
+      </h2>
       <div class="text-lg text-grey-darkest leading-normal spaced-y-6">
         <nuxt-content :document="page" />
+      </div>
+      <div
+        v-if="page.warning"
+        class="my-4 text-indigo-400 font-medium"
+        type="warning"
+      >
+        {{ page.warning }}
       </div>
       <div v-for="doc in posts" :key="doc.slug" class="mt-12 spaced-y-10">
         <post-list-item
