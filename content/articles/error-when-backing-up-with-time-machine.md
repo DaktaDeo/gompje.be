@@ -16,7 +16,7 @@ The day before yesterday, after weeks or even months working perfectly, my Time 
 
 So be it!
 
-Lets [Speed up Time Machine backup][1] and do that initial big dump.
+Lets <nuxt-link to='speed-up-time-machine-backup'>Speed up Time Machine backup</nuxt-link> and do that initial big dump.
 
 ## Init. Again. <error>. Go To 0.
 
@@ -24,21 +24,23 @@ I have roughly 800gb of data. All little files, virtual machines and a couple of
 
 To be save I &#8216;quickly&#8217; made a drive backup, no issues. Several hours have past and I try again with Time Machine. Error after 750kb. Even to a brand new Time Capsule it would just stop after 10mb or sometimes 50gb copied. Safe boot, repairing permissions,.. al resulted in the same vague error. No detailed description of what is going wrong. I looked in the logs with:
 
-<pre class="EnlighterJSRAW" data-enlighter-theme="git" data-enlighter-linenumbers="false">clear; printf '\e[3J' && log show --predicate 'subsystem == "com.apple.TimeMachine"' --info --last 7d | grep -F 'eMac' | grep -Fv 'etat' | awk -F']' '{print substr($0,1,19), $NF}'
-</pre>
+```log
+clear; printf '\e[3J' && log show --predicate 'subsystem == "com.apple.TimeMachine"' --info --last 7d | grep -F 'eMac' | grep -Fv 'etat' | awk -F']' '{print substr($0,1,19), $NF}'
+```
 
 and there it was:
 
-<pre class="EnlighterJSRAW" data-enlighter-theme="git" data-enlighter-linenumbers="false">Error: (-48) SrcErr:NO Copying /Users/veerle/Documents/$RECYCLE.BIN to /Volumes/Time Machine Backups/Backups.backupdb/MacKorben/2017-03-19-100444.inProgress/502CF005-A9A5-4FFB-99B4-73A2DE508CBD/Macintosh HD/Users/veerle/Documents
-2017-03-19 10:09:34  Stopping backup.</pre>
+```log
+Error: (-48) SrcErr:NO Copying /Users/veerle/Documents/$RECYCLE.BIN to /Volumes/Time Machine Backups/Backups.backupdb/MacKorben/2017-03-19-100444.inProgress/502CF005-A9A5-4FFB-99B4-73A2DE508CBD/Macintosh HD/Users/veerle/Documents
+2017-03-19 10:09:34  Stopping backup.
+```
 
 That one file that caused the whole thing to crash and eating my time. If only Apple would provide an easy way to find these errors instead of giving the same &#8216;friendly&#8217; message over and over. 🙄  
 I deleted this hidden system file, restarted the backup &#8211; and..
 
-<nuxt-image src="/img/spongebob-later.jpg"></nuxt-image>
+<nuxt-image src="/img/spongebob-later.jpg" width="737" height="319"></nuxt-image>
 
 ..it&#8217;s almost done. 🎉
 
 Finally!
 
- [1]: https://blog.gompje.be/2017/03/19/speed-up-time-machine-backup/

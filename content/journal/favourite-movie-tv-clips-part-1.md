@@ -21,7 +21,7 @@ This scene needs a bit introduction. Vogons are one of the most unpleasant creat
 
 Vogsphere is their planet &#8211; where idd thinking, ideas and creativity have consequences.
 
-<span class="embed-youtube" style="text-align:center; display: block;"></span>
+[Youtube deleted this video]
 
 This scene/writing is just brilliant &#8211; it works on so many levels. At the surface &#8211; it&#8217;s funny, mysterious and weird &#8211; we never really know what those things are. At first your equally surprised as Arthur is &#8211; not really knowing &#8220;.. did .. something just? just slap me?..&#8221;.
 
@@ -39,7 +39,7 @@ Now thinking further, isn&#8217;t this a very good depiction of what happens IRL
 
 Very empowering end to a so-so movie. I love how even the dance moves match the persona, but then the casting in this movie is spot on.
 
-<span class="embed-youtube" style="text-align:center; display: block;"></span>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/3PSr71Nllmw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [ [Imdb][2] ]
 
@@ -47,7 +47,7 @@ Very empowering end to a so-so movie. I love how even the dance moves match the 
 
 This is one of my favourite halloween movies, despite I&#8217;m not found of Dani at all. The witches on the other hand  &#8211; are just superb. There are many many great scenes in this &#8220;kids&#8221; movie but this one in which the witches first go looking for the book cracks me up every time!
 
-<span class="embed-youtube" style="text-align:center; display: block;"></span>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/P26dpsisrdo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 So much is told in these 2-minutes: what it must feel like to &#8216;propel 300 years into the future&#8217;, that they are gullible into believing stuff b/c well magic is real and their characters.  
 Besides that the striding is just marvellous 😀

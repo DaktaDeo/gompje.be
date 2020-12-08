@@ -16,6 +16,14 @@
   display: block;
 }
 
+.token.inserted:not(.prefix) {
+  background-color: rgba(4,120,87,0.5);
+  display: block;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 .nuxt-content {
   @apply break-words;
@@ -97,6 +105,6 @@
 }
 }
 
-
 }
+
 

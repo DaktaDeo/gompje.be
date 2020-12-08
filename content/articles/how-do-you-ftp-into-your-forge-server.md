@@ -25,8 +25,10 @@ You will need to generate this key first and add it to the default identity stor
 
 ### 1. add the id_rsa key of your computer to your server
 
-  1. copy the key to the clipboard in terminal <pre class="EnlighterJSRAW" data-enlighter-language="shell">pbcopy &lt; ~/.ssh/id_rsa.pub</pre>
-
+  1. copy the key to the clipboard in terminal 
+```console
+pbcopy < ~/.ssh/id_rsa.pub
+```
   2. in Forge, navigate to the server
   3. in Forge, go to SSH keys
   4. in Forge, add a name for the key and past it in the provided fields
@@ -49,7 +51,7 @@ You will need to generate this key first and add it to the default identity stor
               4. enter the passphrase when asked (best practice to always set one)
           3. Select the id_rsa record from the Transmit key-store
 
-### 3. click connect 🎉
+### 3. click connect 🎉
 
 Transmit will give an alert when it is the first time you connect to your server &#8211; you know to make sure it&#8217;s what you intended and safe to connect.
 

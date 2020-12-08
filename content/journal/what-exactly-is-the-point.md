@@ -2,19 +2,16 @@
 title: What exactly is the point… 🤨
 author: Veerle Deschepper
 date: 2019-05-29T13:09:55+00:00
-url: /what-exactly-is-the-point-🤨/
-categories:
-  - Blog
-  - Opinion
 tags:
-  - round-around-we-go-and-back-again
   - security
-  - why?
-
+  - opinion
+blurb:
+    text: '<span class="font-mono text-red-500 text-sm">round-around-we-go-and-back-again</span> ~ When security gets in the way of efficient communication.'
+url: '/what-exactly-is-the-point-🤨/'
 ---
 Welp. I just got an e-mail with as message &#8220;you have a confidential message from x from Az Jan-Palfijn&#8221;. With a link. That link takes me to this page:
 
- <nuxt-image src="/img/screenshot-to-much-security.png"></nuxt-image>
+ <nuxt-image src="/img/screenshot-to-much-security.png" width="655" height="284"></nuxt-image>
 
 And says &#8220;well before you can read this super secret message, you have to unlock it.. by sending an e-mail to the .. exact same e-mail address as before&#8221;.
 

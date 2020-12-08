@@ -8,8 +8,10 @@
 
 <script>
 import PostListIndex from '@/components/PostListIndex'
+import { AutoSEO } from '@/mixins'
 export default {
   components: { PostListIndex },
+  mixins: [AutoSEO],
   async asyncData(context) {
     const { $content } = context
     const page = await $content('projects/index').fetch()

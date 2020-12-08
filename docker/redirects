@@ -1,0 +1,103 @@
+location = /home/ {
+	return 301 /;
+}
+location = /blog/ {
+	return 301 /journal;
+}
+location = /category/blog/ {
+	return 301 /journal;
+}
+location = /category/nantucket/ {
+	return 301 /nantucket;
+}
+
+location = /missing-system-properties-file-unifi-controller-windows/ {
+	return 301 /articles/missing-system-properties-file-unifi-controller-windows;
+}
+location = /happy-holidays/ {
+	return 301 /journal/happy-holidays;
+}
+location = /add-a-second-ip-address-to-your-mac/ {
+	return 301 /articles/add-a-second-ip-address-to-your-mac;
+}
+location = /what-exactly-is-the-point/ {
+	return 301 /journal/what-exactly-is-the-point;
+}
+location = /wow/ {
+	return 301 /journal/wow;
+}
+location = /k8s-research-deploy-the-aftermath/ {
+	return 301 /journal/k8s-research-deploy-the-aftermath;
+}
+location = /braaaaaaains/ {
+	return 301 /journal/braaaaaaains;
+}
+location = /life-as-a-web-developer-i-bet-it-is/ {
+	return 301 /journal/life-as-a-web-developer-i-bet-it-is;
+}
+location = /alan-watts-the-story-of-the-chinese-farmer/ {
+	return 301 /journal/alan-watts-the-story-of-the-chinese-farmer;
+}
+location = /life-as-a-web-developer-weve-been-here-before/ {
+	return 301 /journal/life-as-a-web-developer-weve-been-here-before;
+}
+location = /nantucket-2/ {
+	return 301 /nantucket/nantucket-2;
+}
+location = /speed-up-time-machine-backup/ {
+	return 301 /articles/speed-up-time-machine-backup;
+}
+location = /favourite-movie-tv-clips-part-1/ {
+	return 301 /journal/favourite-movie-tv-clips-part-1;
+}
+location = /we-all-have-super-powers/ {
+	return 301 /journal/we-all-have-super-powers;
+}
+location = /nantucket-0/ {
+	return 301 /nantucket/nantucket-0;
+}
+location = /nantucket-1/ {
+	return 301 /nantucket/nantucket-1;
+}
+location = /r-i-p-uptime/ {
+	return 301 /nantucket/r-i-p-uptime;
+}
+location = /nantucket-3/ {
+	return 301 /nantucket/nantucket-3;
+}
+location = /arkanoid/ {
+	return 301 /projects/arkanoid;
+}
+location = /how-do-you-ftp-into-your-forge-server/ {
+	return 301 /articles/how-do-you-ftp-into-your-forge-server;
+}
+location = /macos-high-sierra-installer-cannot-connect-to-recovery-server/ {
+	return 301 /articles/macos-high-sierra-installer-cannot-connect-to-recovery-server;
+}
+location = /solved-cannot-login-into-account-after-using-migration-assistant/ {
+	return 301 /articles/solved-cannot-login-into-account-after-using-migration-assistant;
+}
+location = /propaganda-games-sesame-credit-the-true-danger-of-gamification/ {
+	return 301 /journal/propaganda-games-sesame-credit-the-true-danger-of-gamification;
+}
+location = /getting-os-x-to-trust-untrusted-and-self-signed-ssl-certificates/ {
+	return 301 /articles/getting-os-x-to-trust-untrusted-and-self-signed-ssl-certificates;
+}
+location = /youve-made-a-custom-post-type-in-your-plugin-but-how-to-show-the-new-fields-in-your-thesis-2-x-powered-website/ {
+	return 301 /articles/youve-made-a-custom-post-type-in-your-plugin-but-how-to-show-the-new-fields-in-your-thesis-2-x-powered-website;
+}
+location = /use-a-plugin-to-make-custom-post-types-or-just-write-your-own/ {
+	return 301 /journal/use-a-plugin-to-make-custom-post-types-or-just-write-your-own;
+}
+location = /testing-the-iphone-iclever-bk05-combo/ {
+	return 301 /reviews/testing-the-iphone-iclever-bk05-combo;
+}
+location = /error-when-backing-up-with-time-machine/ {
+	return 301 /articles/error-when-backing-up-with-time-machine;
+}
+location = /ap-stuck-on-proving-after-changing-ports-unifi/ {
+	return 301 /articles/ap-stuck-on-proving-after-changing-ports-unifi;
+}
+location = /how-to-move-the-google-drive-filestream-fs-cache-folder-on-macos/ {
+	return 301 /articles/how-to-move-the-google-drive-filestream-fs-cache-folder-on-macos;
+}

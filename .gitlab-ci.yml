@@ -14,6 +14,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - dist/
+    - .nuxt/
 
 stages:
   - prepare
@@ -52,6 +53,7 @@ generate_dev:
   artifacts:
     paths:
       - dist/
+      - .nuxt/
     expire_in: 2 hrs 20 min
     when: always
   except:
@@ -70,6 +72,7 @@ generate:
   artifacts:
     paths:
       - dist/
+      - .nuxt/
     expire_in: 2 hrs 20 min
     when: always
   only:

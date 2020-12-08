@@ -4,6 +4,6 @@ services:
   nginx:
     build: .
     ports:
-      - "5000:5000"
-      - "5050:5050"
-    container_name: daktadeo-nuxt
+      - "5080:80"
+      - "5088:8080"
+    container_name: gompje-nuxt
