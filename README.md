@@ -1,20 +1,21 @@
-# Gompje.be
+Veerle highly appreciates you sending us a postcard from your hometown or a nice drawing, mentioning which of our code you are using.
 
-## Build Setup
+## Security
 
-```bash
-# install dependencies
-$ yarn install
+If you discover any security related issues, please email veerle@daktadeo.be instead of using the issue tracker.
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+## Makers-ware
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+You're free to use this code (it's [MIT-licensed](LICENSE.md)). Not the content. If you use it to set up your own blog we would find it fantastic if you would let us know _how_ it has helped you. A Tweet to @daktadeo or @iAmGompje, a postcard to our adddress, a appropriate pic or drawing,.. 
 
-# generate static project
-$ yarn generate
-```
+Our address is: DaktaDeo, Heidestraat 104, 9050 Gent, Belgium.
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Credits
+
+- [Veerle Deschepper](https://github.com/gompje)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
