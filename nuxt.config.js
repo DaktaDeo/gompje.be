@@ -43,6 +43,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~plugins/lodash.js',
     '~plugins/markdown.js',
     '~plugins/filters.js',
     '~plugins/vue-scrollactive.js',
@@ -162,6 +163,14 @@ export default {
           format: 'jpg',
           width: 1200,
           height: 1200,
+        },
+      },
+      jpg_content: {
+        modifiers: {
+          fit: 'inside',
+          format: 'jpg',
+          width: 640,
+          height: 640,
         },
       },
       jpg_thumbnail: {

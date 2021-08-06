@@ -26,6 +26,6 @@ categories:
 > 
 > R.I.P &#8211; we will remember 💐
 
-<nuxt-image class="mx-auto" src='/img/screenshot-uptime.png' width='1004' height='72'></nuxt-image>
+<content-image src='/img/screenshot-uptime.png' alt="terminal of my uptime"></content-image>
 
 .. on to the next record!

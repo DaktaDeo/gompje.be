@@ -106,5 +106,11 @@
 }
 
 }
+figure {
+  @apply -ml-10;
+}
+figure > picture > img {
+  @apply rounded-lg shadow-xl ring-1 ring-black ring-opacity-5;
+}
 
 

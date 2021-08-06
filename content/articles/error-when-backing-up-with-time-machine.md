@@ -38,7 +38,7 @@ Error: (-48) SrcErr:NO Copying /Users/veerle/Documents/$RECYCLE.BIN to /Volumes/
 That one file that caused the whole thing to crash and eating my time. If only Apple would provide an easy way to find these errors instead of giving the same &#8216;friendly&#8217; message over and over. 🙄  
 I deleted this hidden system file, restarted the backup &#8211; and..
 
-<nuxt-image src="/img/spongebob-later.jpg" width="737" height="319"></nuxt-image>
+<content-image src="/img/spongebob-later.jpg" alt="later..."></content-image>
 
 ..it&#8217;s almost done. 🎉
 
