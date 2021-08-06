@@ -15,7 +15,7 @@ const constructFeedItem = async (post, hostname, folder) => {
   )
   try {
     const dom = new JSDOM(await fs.readFile(filePath, 'utf8'))
-    const raw = dom.window.document.getElementById('mainContent').innerHTML
+    const raw = dom.window.document.getElementById('rssContent').innerHTML
     const url = `${hostname}/${folder}/${post.slug}`
 
     // _nuxt/image/
@@ -29,11 +29,11 @@ const constructFeedItem = async (post, hostname, folder) => {
 
     return {
       content,
-      date: new Date(post.createdAt),
+      date: new Date(post.date),
       description: post.description,
       id: url,
       link: url,
-      title: post.title,
+      title: `${folder}: ${post.title}`,
     }
   } catch (e) {
     // forget it
