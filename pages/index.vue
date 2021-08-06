@@ -4,7 +4,7 @@
 
 <script>
 import { AutoSEO } from '@/mixins'
-import Post from '~/components/Post'
+import Post from '~/components/Post.vue'
 
 export default {
   components: { Post },

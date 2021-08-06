@@ -56,10 +56,7 @@ export default {
     doc: {
       type: Object,
       required: true,
-      default: () =>
-        function () {
-          return { title: '', path: '', description: '' }
-        },
+      default: () => ({ title: '', path: '', description: '' }),
     },
   },
 }
