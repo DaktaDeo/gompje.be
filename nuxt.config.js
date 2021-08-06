@@ -7,6 +7,7 @@ const jsdom = require('jsdom')
 const { JSDOM } = jsdom
 
 const constructFeedItem = async (post, hostname, folder) => {
+  const rpl = require('lodash/replace')
   // note the path used here, we are using a dummy page with an empty layout in order to not send that data along with our other content
   const filePath = path.join(
     __dirname,
@@ -14,8 +15,17 @@ const constructFeedItem = async (post, hostname, folder) => {
   )
   try {
     const dom = new JSDOM(await fs.readFile(filePath, 'utf8'))
-    const content = dom.window.document.getElementById('mainContent').innerHTML
+    const raw = dom.window.document.getElementById('mainContent').innerHTML
     const url = `${hostname}/${folder}/${post.slug}`
+
+    // _nuxt/image/
+    const regex1 = /_nuxt/g
+    const regex2 = /a href="\//g
+    const regex3 = /\/http/g
+
+    let content = rpl(raw, regex1, `${hostname}/_nuxt`)
+    content = rpl(content, regex2, `a href="${hostname}/`)
+    content = rpl(content, regex3, 'http')
 
     return {
       content,
@@ -36,8 +46,11 @@ const createFeed = async (feed, args) => {
   const { $content } = require('@nuxt/content')
   const [folders, ext] = args
 
-  // const hostname = process.NODE_ENV === 'production' ? 'https://my-production-domain.com' : 'http://localhost:3000';
-  const hostname = 'https://gompje.be'
+  const hostname =
+    process.NODE_ENV === 'production'
+      ? 'https://gompje.be'
+      : 'http://localhost:3000'
+  // const hostname = 'https://gompje.be'
 
   feed.options = {
     title: 'Gompje.be -- All Posts',
@@ -71,7 +84,7 @@ const createFeed = async (feed, args) => {
   //   console.log(posts)
   //   forEach(posts, (post) => feed.addItem(post))
   // })
-  console.log(feed)
+  // console.log(feed)
   return feed
 }
 
@@ -171,6 +184,7 @@ export default {
     // https://github.com/nuxt-community/sitemap-module#dev
     '@nuxtjs/sitemap',
     '@nuxtjs/feed',
+    ['~/modules/fixRss', { fn: 'feed.xml' }],
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

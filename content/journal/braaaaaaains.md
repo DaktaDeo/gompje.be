@@ -13,8 +13,6 @@ I have a neurological, incurable  disease. Not fatal. Not curable. Maybe not de
 
 Slowly working through a huge backlog and looking trough files I stumble upon this screenshot:
 
-<nuxt-img src='/img/screenshot-using-console-to-calculate-datediff.png'></nuxt-img> 
-
 <content-image wide src='/img/screenshot-using-console-to-calculate-datediff.png' alt="screenshot of using console to calculate dates"></content-image>
 
 I had to calculate the date for 1 month before my operation and 2 months later. Couldn&#8217;t do this easy thing by hard, I mean how difficult is it really to add 2 months to a date in October? or subtract a month? Riiiiiight. not hard.
