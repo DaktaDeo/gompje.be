@@ -1,29 +1,55 @@
 import webpack from 'webpack'
 
+const fs = require('fs').promises
+const path = require('path')
+const jsdom = require('jsdom')
+const { JSDOM } = jsdom
+
 const constructFeedItem = async (post, hostname, folder) => {
-  const url = `${hostname}/${folder}/${post.slug}`
-  return {
-    author: post.authors,
-    content: post.bodyHtml,
-    date: new Date(post.createdAt),
-    description: post.description,
-    id: url,
-    link: url,
-    title: post.title,
+  // note the path used here, we are using a dummy page with an empty layout in order to not send that data along with our other content
+  const filePath = path.join(
+    __dirname,
+    `dist/${folder}/${post.slug}/index.html`
+  )
+  try {
+    const dom = new JSDOM(await fs.readFile(filePath, 'utf8'))
+    const content = dom.window.document.getElementById('mainContent').innerHTML
+    const url = `${hostname}/${folder}/${post.slug}`
+
+    return {
+      author: post.authors,
+      content,
+      date: new Date(post.createdAt),
+      description: post.description,
+      id: url,
+      link: url,
+      title: post.title,
+    }
+  } catch (e) {
+    // forget it
+    // console.log(e)
+    return {}
   }
 }
-const addContentToFeed = async (feed, hostname, folder) => {
+const fetchFeedContent = async (hostname, folder) => {
+  const posts = []
   const { $content } = require('@nuxt/content')
   const forEach = require('lodash/forEach')
-  const articles = await $content(folder).fetch()
+  const articles = await $content(folder)
+    .where({ slug: { $ne: 'index' } })
+    .fetch()
+  // eslint-disable-next-line lodash/prefer-map
   forEach(articles, async (post) => {
-    const feedItem = await constructFeedItem(post, hostname, folder)
-    feed.addItem(feedItem)
+    posts.push(await constructFeedItem(post, hostname, folder))
   })
+  return posts
 }
 
 const createFeed = async (feed, args) => {
-  const [ext] = args
+  const [folders, ext] = args
+  const forEach = require('lodash/forEach')
+  // const union = require('lodash/union')
+
   // const hostname = process.NODE_ENV === 'production' ? 'https://my-production-domain.com' : 'http://localhost:3000';
   const hostname = 'https://gompje.be'
 
@@ -33,10 +59,12 @@ const createFeed = async (feed, args) => {
     link: `${hostname}/feed.${ext}`,
   }
 
-  await addContentToFeed(feed, hostname, 'articles')
-  await addContentToFeed(feed, hostname, 'reviews')
-  await addContentToFeed(feed, hostname, 'journal')
-
+  forEach(folders, async (dir) => {
+    const posts = await fetchFeedContent(hostname, dir)
+    console.log(posts)
+    forEach(posts, (post) => feed.addItem(post))
+  })
+  console.log(feed)
   return feed
 }
 
@@ -121,8 +149,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://sebastianlandwehr.com/blog/creating-an-rss-feed-from-nuxt-content-with-full-body-html-code
-    'nuxt-content-body-html',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
@@ -250,99 +276,7 @@ export default {
       create: createFeed,
       cacheTime: 1000 * 60 * 15,
       type: 'rss2',
-      data: ['blog', 'xml'],
-    },
-  ],
-  feedz: [
-    {
-      create: async (feed) => {
-        const { $content } = require('@nuxt/content')
-        feed.options = {
-          title: "Gompje's articles",
-          link: 'https://gompje.be/articles',
-          description: '',
-        }
-
-        const posts = await $content('articles')
-          .sortBy('createdAt', 'desc')
-          .fetch()
-
-        // eslint-disable-next-line lodash/prefer-lodash-method
-        posts.forEach((post) => {
-          const url = `https://gompje.be/articles/${post.slug}`
-          feed.addItem({
-            author: post.authors,
-            content: post.bodyHtml,
-            date: new Date(post.createdAt),
-            description: post.description,
-            id: url,
-            link: url,
-            title: post.title,
-          })
-        })
-      },
-      path: '/feed/articles',
-      type: 'rss2',
-    },
-    {
-      create: async (feed) => {
-        const { $content } = require('@nuxt/content')
-        feed.options = {
-          title: "Gompje's articles",
-          link: 'https://gompje.be/articles',
-          description: '',
-        }
-
-        const posts = await $content('reviews')
-          .sortBy('createdAt', 'desc')
-          .fetch()
-
-        // eslint-disable-next-line lodash/prefer-lodash-method
-        posts.forEach((post) => {
-          const url = `https://gompje.be/reviews/${post.slug}`
-          feed.addItem({
-            author: post.authors,
-            content: post.bodyHtml,
-            date: new Date(post.createdAt),
-            description: post.description,
-            id: url,
-            link: url,
-            title: post.title,
-          })
-        })
-      },
-      path: '/feed/reviews',
-      type: 'rss2',
-    },
-    {
-      create: async (feed) => {
-        const { $content } = require('@nuxt/content')
-        feed.options = {
-          title: "Gompje's journal",
-          link: 'https://gompje.be/journal',
-          description: '',
-        }
-
-        const posts = await $content('journal')
-          .sortBy('createdAt', 'desc')
-          .fetch()
-
-        // eslint-disable-next-line lodash/prefer-lodash-method
-        posts.forEach((post) => {
-          const url = `https://gompje.be/journal/${post.slug}`
-          feed.addItem({
-            author: post.authors,
-            content: post.bodyHtml,
-            date: new Date(post.createdAt),
-            description: post.description,
-            id: url,
-            link: url,
-            title: post.title,
-          })
-        })
-      },
-      path: '/feed/journal',
-      type: 'rss2',
+      data: [['articles', 'reviews', 'journal'], 'xml'],
     },
   ],
 }

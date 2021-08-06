@@ -1,6 +1,6 @@
 <template>
   <div v-if="page" class="relative px-4 sm:px-6 lg:px-8">
-    <article class="text-lg max-w-prose mx-auto">
+    <article id="mainContent" class="text-lg max-w-prose mx-auto">
       <h1>
         <nuxt-link :to="`/${section}`">
           <span
