@@ -5,6 +5,7 @@
 <script>
 import Post from '@/components/Post'
 import { AutoSEO } from '@/mixins'
+
 export default {
   components: { Post },
   mixins: [AutoSEO],

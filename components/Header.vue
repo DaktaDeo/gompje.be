@@ -1,7 +1,17 @@
 <template>
   <div class="relative">
     <div
-      class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10 max-w-screen-xl mx-auto"
+      class="
+        flex
+        justify-between
+        items-center
+        px-4
+        py-6
+        sm:px-6
+        md:justify-start md:space-x-10
+        max-w-screen-xl
+        mx-auto
+      "
     >
       <div class="lg:w-0 lg:flex-1">
         <nuxt-link
@@ -19,7 +29,19 @@
       <div class="-mr-2 -my-2 md:hidden">
         <button
           type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+          class="
+            inline-flex
+            items-center
+            justify-center
+            p-2
+            rounded-md
+            text-gray-400
+            hover:text-gray-500 hover:bg-gray-100
+            focus:outline-none focus:bg-gray-100 focus:text-gray-500
+            transition
+            duration-150
+            ease-in-out
+          "
           @click.prevent="isMobile = true"
         >
           <!-- Heroicon name: menu -->
@@ -45,12 +67,35 @@
             <div class="relative">
               <button
                 type="button"
-                class="group text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-100 focus:outline-none focus:text-gray-100 transition ease-in-out duration-150"
+                class="
+                  group
+                  text-gray-500
+                  inline-flex
+                  items-center
+                  space-x-2
+                  text-base
+                  leading-6
+                  font-medium
+                  hover:text-gray-100
+                  focus:outline-none focus:text-gray-100
+                  transition
+                  ease-in-out
+                  duration-150
+                "
                 @click.prevent="changeMenu(item)"
               >
                 <span>{{ item.name }}</span>
                 <svg
-                  class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150"
+                  class="
+                    text-gray-400
+                    h-5
+                    w-5
+                    group-hover:text-gray-500
+                    group-focus:text-gray-500
+                    transition
+                    ease-in-out
+                    duration-150
+                  "
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -66,21 +111,62 @@
               <div v-if="activeItem === item.id">
                 <div
                   v-if="item.type === 'two-col'"
-                  class="absolute -ml-4 mt-3 transform w-screen max-w-md md:max-w-3xl lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 z-50"
+                  class="
+                    absolute
+                    -ml-4
+                    mt-3
+                    transform
+                    w-screen
+                    max-w-md
+                    md:max-w-3xl
+                    lg:ml-0 lg:left-1/2 lg:-translate-x-1/2
+                    z-50
+                  "
                 >
                   <div class="rounded-lg shadow-lg">
                     <div class="rounded-lg shadow-xs overflow-hidden">
                       <div
-                        class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2"
+                        class="
+                          z-20
+                          relative
+                          grid
+                          gap-6
+                          bg-white
+                          px-5
+                          py-6
+                          sm:gap-8 sm:p-8
+                          lg:grid-cols-2
+                        "
                       >
                         <nuxt-link
                           v-for="subitem in item.children"
                           :key="subitem.id"
                           :to="subitem.to"
-                          class="-m-3 p-3 flex items-start space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
+                          class="
+                            -m-3
+                            p-3
+                            flex
+                            items-start
+                            space-x-4
+                            rounded-lg
+                            hover:bg-gray-50
+                            transition
+                            ease-in-out
+                            duration-150
+                          "
                         >
                           <div
-                            class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12"
+                            class="
+                              flex-shrink-0 flex
+                              items-center
+                              justify-center
+                              h-10
+                              w-10
+                              rounded-md
+                              bg-indigo-500
+                              text-white
+                              sm:h-12 sm:w-12
+                            "
                           >
                             <!-- Heroicon name: chart-bar -->
                             <svg
@@ -100,7 +186,12 @@
                           </div>
                           <div class="space-y-1">
                             <p
-                              class="text-base leading-6 font-medium text-gray-900"
+                              class="
+                                text-base
+                                leading-6
+                                font-medium
+                                text-gray-900
+                              "
                             >
                               {{ subitem.name }}
                             </p>
@@ -115,21 +206,56 @@
                 </div>
                 <div v-else>
                   <div
-                    class="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0 z-50"
+                    class="
+                      absolute
+                      left-1/2
+                      transform
+                      -translate-x-1/2
+                      mt-3
+                      px-2
+                      w-screen
+                      max-w-xs
+                      sm:px-0
+                      z-50
+                    "
                   >
                     <div class="rounded-lg shadow-lg">
                       <div class="rounded-lg shadow-xs overflow-hidden">
                         <div
-                          class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8"
+                          class="
+                            z-20
+                            relative
+                            grid
+                            gap-6
+                            bg-white
+                            px-5
+                            py-6
+                            sm:gap-8 sm:p-8
+                          "
                         >
                           <nuxt-link
                             v-for="subitem in item.children"
                             :key="subitem.id"
                             :to="subitem.to"
-                            class="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
+                            class="
+                              -m-3
+                              p-3
+                              block
+                              space-y-1
+                              rounded-md
+                              hover:bg-gray-50
+                              transition
+                              ease-in-out
+                              duration-150
+                            "
                           >
                             <p
-                              class="text-base leading-6 font-medium text-gray-900"
+                              class="
+                                text-base
+                                leading-6
+                                font-medium
+                                text-gray-900
+                              "
                             >
                               {{ subitem.name }}
                             </p>
@@ -149,7 +275,17 @@
             <nuxt-link
               v-if="item.to"
               :to="item.to"
-              class="text-base leading-6 font-medium text-gray-600 hover:text-black focus:outline-none focus:text-black transition ease-in-out duration-150"
+              class="
+                text-base
+                leading-6
+                font-medium
+                text-gray-600
+                hover:text-black
+                focus:outline-none focus:text-black
+                transition
+                ease-in-out
+                duration-150
+              "
             >
               {{ item.name }}
             </nuxt-link>
@@ -157,16 +293,40 @@
         </div>
       </nav>
       <div
-        class="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0"
+        class="
+          hidden
+          md:flex
+          items-center
+          justify-end
+          space-x-8
+          md:flex-1
+          lg:w-0
+        "
       ></div>
     </div>
     <div
       v-if="isMobile"
-      class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50 bg-gray-100"
+      class="
+        absolute
+        top-0
+        inset-x-0
+        p-2
+        transition
+        transform
+        origin-top-right
+        md:hidden
+        z-50
+        bg-gray-100
+      "
     >
       <div class="rounded-lg shadow-lg">
         <div
-          class="rounded-lg shadow-xs bg-primary-color-dark divide-y-2 divide-gray-50"
+          class="
+            rounded-lg
+            shadow-xs
+            bg-primary-color-dark
+            divide-y-2 divide-gray-50
+          "
         >
           <div class="pt-5 pb-6 px-5 space-y-6">
             <div class="flex items-center justify-between">
@@ -179,7 +339,19 @@
               <div class="-mr-2">
                 <button
                   type="button"
-                  class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    p-2
+                    rounded-md
+                    text-gray-600
+                    hover:text-black hover:bg-gray-100
+                    focus:outline-none focus:bg-gray-100 focus:text-gray-500
+                    transition
+                    duration-150
+                    ease-in-out
+                  "
                   @click.prevent="isMobile = false"
                 >
                   <!-- Heroicon name: x -->

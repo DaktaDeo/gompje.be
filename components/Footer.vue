@@ -6,7 +6,13 @@
         class="mt-2 md:mt-4 border-t border-gray-200 pt-2 md:pt-4 border-dotted"
       >
         <p
-          class="leading-6 text-gray-400 text-center md:text-left xl:text-center text-sm"
+          class="
+            leading-6
+            text-gray-400 text-center
+            md:text-left
+            xl:text-center
+            text-sm
+          "
         >
           The DaktaDeo & Multipass logos are copyright &copy;
           <a href="https://daktadeo.be?ref=gompje.be">DaktaDeo.</a> 2011–{{

@@ -31,7 +31,13 @@
     >
       <nuxt-link
         :to="doc.path"
-        class="text-grey-darker hover:text-black text-sm no-underline hover:underline"
+        class="
+          text-grey-darker
+          hover:text-black
+          text-sm
+          no-underline
+          hover:underline
+        "
       >
         {{ readMoreText }}
       </nuxt-link>

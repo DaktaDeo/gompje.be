@@ -4,12 +4,27 @@
       <h1>
         <nuxt-link :to="`/${section}`">
           <span
-            class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase"
+            class="
+              block
+              text-base text-center text-indigo-600
+              font-semibold
+              tracking-wide
+              uppercase
+            "
             >{{ section }}</span
           >
         </nuxt-link>
         <span
-          class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+          class="
+            mt-2
+            block
+            text-3xl text-center
+            leading-8
+            font-extrabold
+            tracking-tight
+            text-gray-900
+            sm:text-4xl
+          "
           >{{ page.title }}</span
         >
       </h1>
