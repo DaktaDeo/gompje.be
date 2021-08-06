@@ -1,5 +1,45 @@
 import webpack from 'webpack'
 
+const constructFeedItem = async (post, hostname, folder) => {
+  const url = `${hostname}/${folder}/${post.slug}`
+  return {
+    author: post.authors,
+    content: post.bodyHtml,
+    date: new Date(post.createdAt),
+    description: post.description,
+    id: url,
+    link: url,
+    title: post.title,
+  }
+}
+const addContentToFeed = async (feed, hostname, folder) => {
+  const { $content } = require('@nuxt/content')
+  const forEach = require('lodash/forEach')
+  const articles = await $content(folder).fetch()
+  forEach(articles, async (post) => {
+    const feedItem = await constructFeedItem(post, hostname, folder)
+    feed.addItem(feedItem)
+  })
+}
+
+const createFeed = async (feed, args) => {
+  const [ext] = args
+  // const hostname = process.NODE_ENV === 'production' ? 'https://my-production-domain.com' : 'http://localhost:3000';
+  const hostname = 'https://gompje.be'
+
+  feed.options = {
+    title: 'Gompje.be -- All Posts',
+    description: 'Blog Stuff!',
+    link: `${hostname}/feed.${ext}`,
+  }
+
+  await addContentToFeed(feed, hostname, 'articles')
+  await addContentToFeed(feed, hostname, 'reviews')
+  await addContentToFeed(feed, hostname, 'journal')
+
+  return feed
+}
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -17,6 +57,12 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        href: '/feed.xml',
+        title: 'Gompje.be -- All Posts -- rss feed',
+      },
       {
         rel: 'icon',
         type: 'image/png',
@@ -75,6 +121,8 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    // https://sebastianlandwehr.com/blog/creating-an-rss-feed-from-nuxt-content-with-full-body-html-code
+    'nuxt-content-body-html',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
@@ -89,6 +137,7 @@ export default {
     '@nuxtjs/robots',
     // https://github.com/nuxt-community/sitemap-module#dev
     '@nuxtjs/sitemap',
+    '@nuxtjs/feed',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -195,4 +244,105 @@ export default {
     cssPath: '@/assets/css/tailwind.css',
     exposeConfig: false,
   },
+  feed: [
+    {
+      path: '/feed.xml',
+      create: createFeed,
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+      data: ['blog', 'xml'],
+    },
+  ],
+  feedz: [
+    {
+      create: async (feed) => {
+        const { $content } = require('@nuxt/content')
+        feed.options = {
+          title: "Gompje's articles",
+          link: 'https://gompje.be/articles',
+          description: '',
+        }
+
+        const posts = await $content('articles')
+          .sortBy('createdAt', 'desc')
+          .fetch()
+
+        // eslint-disable-next-line lodash/prefer-lodash-method
+        posts.forEach((post) => {
+          const url = `https://gompje.be/articles/${post.slug}`
+          feed.addItem({
+            author: post.authors,
+            content: post.bodyHtml,
+            date: new Date(post.createdAt),
+            description: post.description,
+            id: url,
+            link: url,
+            title: post.title,
+          })
+        })
+      },
+      path: '/feed/articles',
+      type: 'rss2',
+    },
+    {
+      create: async (feed) => {
+        const { $content } = require('@nuxt/content')
+        feed.options = {
+          title: "Gompje's articles",
+          link: 'https://gompje.be/articles',
+          description: '',
+        }
+
+        const posts = await $content('reviews')
+          .sortBy('createdAt', 'desc')
+          .fetch()
+
+        // eslint-disable-next-line lodash/prefer-lodash-method
+        posts.forEach((post) => {
+          const url = `https://gompje.be/reviews/${post.slug}`
+          feed.addItem({
+            author: post.authors,
+            content: post.bodyHtml,
+            date: new Date(post.createdAt),
+            description: post.description,
+            id: url,
+            link: url,
+            title: post.title,
+          })
+        })
+      },
+      path: '/feed/reviews',
+      type: 'rss2',
+    },
+    {
+      create: async (feed) => {
+        const { $content } = require('@nuxt/content')
+        feed.options = {
+          title: "Gompje's journal",
+          link: 'https://gompje.be/journal',
+          description: '',
+        }
+
+        const posts = await $content('journal')
+          .sortBy('createdAt', 'desc')
+          .fetch()
+
+        // eslint-disable-next-line lodash/prefer-lodash-method
+        posts.forEach((post) => {
+          const url = `https://gompje.be/journal/${post.slug}`
+          feed.addItem({
+            author: post.authors,
+            content: post.bodyHtml,
+            date: new Date(post.createdAt),
+            description: post.description,
+            id: url,
+            link: url,
+            title: post.title,
+          })
+        })
+      },
+      path: '/feed/journal',
+      type: 'rss2',
+    },
+  ],
 }
