@@ -32,25 +32,9 @@ const constructFeedItem = async (post, hostname, folder) => {
   }
 }
 
-const fetchFeedContent = async (hostname, folder) => {
-  const { $content } = require('@nuxt/content')
-  const forEach = require('lodash/forEach')
-  const articles = await $content(folder)
-    .where({ slug: { $ne: 'index' } })
-    .fetch()
-  // eslint-disable-next-line lodash/prefer-map
-  forEach(articles, async (post) => {
-    posts.push(await constructFeedItem(post, hostname, folder))
-  })
-  console.log(posts)
-  return posts
-}
-
 const createFeed = async (feed, args) => {
   const { $content } = require('@nuxt/content')
   const [folders, ext] = args
-  const forEach = require('lodash/forEach')
-  // const union = require('lodash/union')
 
   // const hostname = process.NODE_ENV === 'production' ? 'https://my-production-domain.com' : 'http://localhost:3000';
   const hostname = 'https://gompje.be'
@@ -61,16 +45,20 @@ const createFeed = async (feed, args) => {
     link: `${hostname}/feed.${ext}`,
   }
 
-  const folder = 'journal'
-  const articles = await $content(folder)
-    .where({ slug: { $ne: 'index' } })
-    .fetch()
-
   // eslint-disable-next-line no-restricted-syntax
-  for (const post of articles) {
+  for (const folder of folders) {
+    // const folder = 'journal'
     // eslint-disable-next-line no-await-in-loop
-    const feedItem = await constructFeedItem(post, hostname, folder)
-    feed.addItem(feedItem)
+    const articles = await $content(folder)
+      .where({ slug: { $ne: 'index' } })
+      .fetch()
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const post of articles) {
+      // eslint-disable-next-line no-await-in-loop
+      const feedItem = await constructFeedItem(post, hostname, folder)
+      feed.addItem(feedItem)
+    }
   }
 
   // eslint-disable-next-line lodash/prefer-map
