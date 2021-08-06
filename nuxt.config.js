@@ -46,6 +46,7 @@ export default {
     '~plugins/markdown.js',
     '~plugins/filters.js',
     '~plugins/vue-scrollactive.js',
+    '~/plugins/vue-agile',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -114,6 +115,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-property-in-object', { loose: true }]],
+    },
+    transpile: ['vue-agile'],
     plugins: [
       new webpack.ProvidePlugin({
         // global modules
@@ -133,17 +138,15 @@ export default {
   },
   image: {
     sizes: [320, 420, 768, 1024, 1200],
-    presets: [
-      {
-        name: 'avatar',
+    presets: {
+      avatar: {
         modifiers: {
           format: 'jpg',
           width: 50,
           height: 50,
         },
       },
-      {
-        name: 'jpg-cover',
+      jpg_cover: {
         modifiers: {
           fit: 'cover',
           format: 'jpg',
@@ -151,8 +154,7 @@ export default {
           height: 240,
         },
       },
-      {
-        name: 'jpg-featured',
+      jpg_featured: {
         modifiers: {
           fit: 'inside',
           format: 'jpg',
@@ -160,8 +162,7 @@ export default {
           height: 1200,
         },
       },
-      {
-        name: 'jpg-thumbnail',
+      jpg_thumbnail: {
         modifiers: {
           fit: 'inside',
           format: 'jpg',
@@ -169,7 +170,7 @@ export default {
           height: 80,
         },
       },
-    ],
+    },
   },
   sitemap: [
     {
