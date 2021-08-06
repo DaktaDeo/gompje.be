@@ -179,4 +179,9 @@ export default {
       i18n: false,
     },
   ],
+  tailwindcss: {
+    configPath: '@/tailwind.config.js',
+    cssPath: '@/assets/css/tailwind.css',
+    exposeConfig: false,
+  },
 }
