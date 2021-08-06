@@ -3,6 +3,7 @@ import webpack from 'webpack'
 const fs = require('fs').promises
 const path = require('path')
 const jsdom = require('jsdom')
+
 const { JSDOM } = jsdom
 
 const constructFeedItem = async (post, hostname, folder) => {
@@ -17,7 +18,6 @@ const constructFeedItem = async (post, hostname, folder) => {
     const url = `${hostname}/${folder}/${post.slug}`
 
     return {
-      author: post.authors,
       content,
       date: new Date(post.createdAt),
       description: post.description,
@@ -31,8 +31,8 @@ const constructFeedItem = async (post, hostname, folder) => {
     return {}
   }
 }
+
 const fetchFeedContent = async (hostname, folder) => {
-  const posts = []
   const { $content } = require('@nuxt/content')
   const forEach = require('lodash/forEach')
   const articles = await $content(folder)
@@ -42,10 +42,12 @@ const fetchFeedContent = async (hostname, folder) => {
   forEach(articles, async (post) => {
     posts.push(await constructFeedItem(post, hostname, folder))
   })
+  console.log(posts)
   return posts
 }
 
 const createFeed = async (feed, args) => {
+  const { $content } = require('@nuxt/content')
   const [folders, ext] = args
   const forEach = require('lodash/forEach')
   // const union = require('lodash/union')
@@ -59,11 +61,28 @@ const createFeed = async (feed, args) => {
     link: `${hostname}/feed.${ext}`,
   }
 
-  forEach(folders, async (dir) => {
-    const posts = await fetchFeedContent(hostname, dir)
-    console.log(posts)
-    forEach(posts, (post) => feed.addItem(post))
-  })
+  const folder = 'journal'
+  const articles = await $content(folder)
+    .where({ slug: { $ne: 'index' } })
+    .fetch()
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const post of articles) {
+    // eslint-disable-next-line no-await-in-loop
+    const feedItem = await constructFeedItem(post, hostname, folder)
+    feed.addItem(feedItem)
+  }
+
+  // eslint-disable-next-line lodash/prefer-map
+  // forEach(articles, async (post) => {
+  //   posts.push(await constructFeedItem(post, hostname, folder))
+  // })
+
+  // forEach(folders, async (dir) => {
+  //   const posts = await fetchFeedContent(hostname, dir)
+  //   console.log(posts)
+  //   forEach(posts, (post) => feed.addItem(post))
+  // })
   console.log(feed)
   return feed
 }
