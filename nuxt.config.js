@@ -41,11 +41,11 @@ const createFeed = async (feed, args) => {
   const { $content } = require('@nuxt/content')
   const [folders, ext] = args
 
-  const hostname =
-    process.NODE_ENV === 'production'
-      ? 'https://gompje.be'
-      : 'http://localhost:3000'
-  // const hostname = 'https://gompje.be'
+  // const hostname =
+  //   process.NODE_ENV === 'production'
+  //     ? 'https://gompje.be'
+  //     : 'http://localhost:3000'
+  const hostname = 'https://gompje.be'
 
   feed.options = {
     title: 'Gompje.be -- All Posts',
