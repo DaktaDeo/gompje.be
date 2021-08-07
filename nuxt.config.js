@@ -18,14 +18,9 @@ const constructFeedItem = async (post, hostname, folder) => {
     const raw = dom.window.document.getElementById('rssContent').innerHTML
     const url = `${hostname}/${folder}/${post.slug}`
 
-    // _nuxt/image/
-    const regex1 = /_nuxt/g
-    const regex2 = /a href="\//g
-    const regex3 = /\/http/g
-
-    let content = rpl(raw, regex1, `${hostname}/_nuxt`)
-    content = rpl(content, regex2, `a href="${hostname}/`)
-    content = rpl(content, regex3, 'http')
+    let content = rpl(raw, /_nuxt/g, `${hostname}/_nuxt`)
+    content = rpl(content, /a href="\//g, `a href="${hostname}/`)
+    content = rpl(content, /\/http/g, 'http')
 
     return {
       content,
@@ -73,18 +68,6 @@ const createFeed = async (feed, args) => {
       feed.addItem(feedItem)
     }
   }
-
-  // eslint-disable-next-line lodash/prefer-map
-  // forEach(articles, async (post) => {
-  //   posts.push(await constructFeedItem(post, hostname, folder))
-  // })
-
-  // forEach(folders, async (dir) => {
-  //   const posts = await fetchFeedContent(hostname, dir)
-  //   console.log(posts)
-  //   forEach(posts, (post) => feed.addItem(post))
-  // })
-  // console.log(feed)
   return feed
 }
 
