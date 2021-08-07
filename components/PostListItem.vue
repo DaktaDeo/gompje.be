@@ -16,7 +16,8 @@
           text-lg
           font-bold
           no-underline
-          hover:underline
+          hover:underline hover:text-indigo-400
+          dark:hover:text-indigo-400
         "
       >
         {{ doc.title }}
@@ -39,7 +40,8 @@
         class="
           text-gray-900
           dark:text-gray-200
-          hover:text-black
+          hover:text-indigo-400
+          dark:hover:text-indigo-400
           text-sm
           no-underline
           hover:underline
