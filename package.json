@@ -90,6 +90,7 @@
     "nightwind": "^1.1.12",
     "nuxt": "^2.14.6",
     "postcss": "^8.3.6",
+    "postcss-selector-parser": "^6.0.6",
     "prettier": "^2.3.2",
     "prettier-eslint": "^13.0.0",
     "prettier-eslint-cli": "^5.0.1",

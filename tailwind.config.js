@@ -13,6 +13,13 @@ module.exports = {
   theme: {
     nightwind: {
       typography: true,
+      fixedClass: 'nuxt-content-highlight', // default 'nightwind-prevent'
+      fixedBlockClass: 'nuxt-content-highlight', // default 'nightwind-prevent-block'
+      colors: {
+        gray: {
+          800: 600,
+        },
+      },
     },
   },
   plugins: [

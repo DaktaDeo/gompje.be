@@ -97,7 +97,8 @@ audio, canvas, embed, iframe, img, object, svg, video {
 /* Force style on pre elements */
 & pre[class*="language-"] {
     /* Make pre static so the relative goes to the parent (.nuxt-content-highlight) */
-    @apply bg-gray-800 static;
+    @apply static;
+  background-color: rgb(45, 55, 72) !important;
 
     //white-space : pre-wrap !important;
     font-size: 0.875rem !important;
