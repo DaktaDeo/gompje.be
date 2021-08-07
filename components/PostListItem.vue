@@ -4,34 +4,46 @@
       <div class="text-gray-400 text-xs uppercase">
         {{ doc.date | formatDateTimeLong }}
       </div>
-      <span v-if="doc.short" class="text-lg text-black">{{ doc.title }}</span>
+      <span v-if="doc.short" class="text-lg text-gray-900 dark:text-gray-200">
+        {{ doc.title }}
+      </span>
       <nuxt-link
         v-else
         :to="doc.path"
-        class="text-lg text-black font-bold no-underline hover:underline"
+        class="
+          text-gray-900
+          dark:text-gray-200
+          text-lg
+          font-bold
+          no-underline
+          hover:underline
+        "
       >
         {{ doc.title }}
       </nuxt-link>
     </div>
-    <div
-      v-if="doc.blurb"
-      class="text-grey-darkest text-base leading-normal mt-1"
-    >
-      <nuxt-image
+    <div v-if="doc.blurb" class="text-base leading-normal mt-1">
+      <nuxt-img
         v-if="doc.blurb.image"
-        :src="`+jpg-featured:${doc.blurb.image}`"
+        preset="jpg_featured"
+        :src="doc.blurb.image"
         width="720"
         height="405"
-      />
+        :lazy="false"
+      ></nuxt-img>
       <p v-if="doc.blurb.text" v-html="doc.blurb.text"></p>
     </div>
-    <div
-      v-if="!doc.short"
-      class="text-grey-darkest text-base leading-normal mt-2"
-    >
+    <div v-if="!doc.short" class="text-base leading-normal mt-2">
       <nuxt-link
         :to="doc.path"
-        class="text-grey-darker hover:text-black text-sm no-underline hover:underline"
+        class="
+          text-gray-900
+          dark:text-gray-200
+          hover:text-black
+          text-sm
+          no-underline
+          hover:underline
+        "
       >
         {{ readMoreText }}
       </nuxt-link>
@@ -50,10 +62,7 @@ export default {
     doc: {
       type: Object,
       required: true,
-      default: () =>
-        function () {
-          return { title: '', path: '', description: '' }
-        },
+      default: () => ({ title: '', path: '', description: '' }),
     },
   },
 }

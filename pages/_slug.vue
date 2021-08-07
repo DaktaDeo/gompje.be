@@ -3,8 +3,9 @@
 </template>
 
 <script>
+import Post from '@/components/Post'
 import { AutoSEO } from '@/mixins'
-import Post from '~/components/Post'
+
 export default {
   components: { Post },
   mixins: [AutoSEO],

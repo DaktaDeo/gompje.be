@@ -8,8 +8,6 @@ url: '/happy-holidays/'
 blurb:
     image: '/img/me-and-my-mother.jpg'
 ---
-<nuxt-image
-        :src="`+jpg-featured:/img/me-and-my-mother.jpg`"
-        width="720"
-        height="405"
-      />
+
+<content-image src="/img/me-and-my-mother.jpg" alt="selfie of my mother and I"></content-image>
+

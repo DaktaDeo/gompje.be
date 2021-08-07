@@ -1,7 +1,30 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+  display: block;
+  vertical-align: middle;
+}
 .dark-img {
   display: none;
 }
@@ -74,7 +97,8 @@
 /* Force style on pre elements */
 & pre[class*="language-"] {
     /* Make pre static so the relative goes to the parent (.nuxt-content-highlight) */
-    @apply bg-gray-800 static;
+    @apply static;
+  background-color: rgb(45, 55, 72) !important;
 
     //white-space : pre-wrap !important;
     font-size: 0.875rem !important;
@@ -105,6 +129,12 @@
 }
 }
 
+}
+figure {
+  //@apply -ml-8;
+}
+figure > picture > img {
+  @apply rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 mx-auto;
 }
 
 

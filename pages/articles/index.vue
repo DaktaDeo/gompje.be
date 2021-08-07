@@ -9,6 +9,7 @@
 <script>
 import PostListIndex from '@/components/PostListIndex'
 import { AutoSEO } from '@/mixins'
+
 export default {
   components: { PostListIndex },
   mixins: [AutoSEO],

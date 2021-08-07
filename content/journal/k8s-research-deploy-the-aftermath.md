@@ -11,8 +11,8 @@ tags:
   - K8s
 ---
 
-<nuxt-image src="/img/screenshot-open-tabs.png" width="2310" height="74"></nuxt-image>
-  
+<content-image wide src="/img/screenshot-open-tabs.png" alt="screenshot of 66 open tabs"></content-image>
+
 Those 66 open useful tabs aren&#8217;t rare &#8211; at least not for me. But on a single 13-inch retina screen, on a 4y+ old computer with lots of other stuff going on.. it was like a mini stress-test. Although I hardly noticed. Some things just took a while to load up.
 
 Maybe I should reboot 🤔

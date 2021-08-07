@@ -14,7 +14,7 @@ tags:
 
 ---
 
-<nuxt-image class="mx-auto" src="/img/ikea-knew-it-all-along.jpg" width="750" height="350"></nuxt-image>
+<content-image wide src="/img/ikea-knew-it-all-along.jpg" alt="Ikea says its time for the 'new Veerle'"></content-image>
 
 Got a mail today. (=yesterday) From Ikea. This was the main heading. It says &#8220;The New Veerle Deserves a Personalized Approach&#8221;. In Dutch. With my name &#8216;_Ikea-a-ne-lized_&#8216; you know with the dots on the E&#8217;s and all. Thats funny and clever.
 
