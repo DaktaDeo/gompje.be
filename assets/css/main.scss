@@ -131,10 +131,10 @@ audio, canvas, embed, iframe, img, object, svg, video {
 
 }
 figure {
-  @apply -ml-10;
+  //@apply -ml-8;
 }
 figure > picture > img {
-  @apply rounded-lg shadow-xl ring-1 ring-black ring-opacity-5;
+  @apply rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 mx-auto;
 }
 
 

@@ -250,8 +250,8 @@ export default {
         modifiers: {
           fit: 'inside',
           format: 'jpg',
-          width: 640,
-          height: 640,
+          width: 1280,
+          height: 720,
         },
       },
       jpg_thumbnail: {
