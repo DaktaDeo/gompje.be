@@ -1,6 +1,6 @@
 <template>
   <div v-if="page" class="relative px-4 sm:px-6 lg:px-8">
-    <article class="text-lg max-w-prose mx-auto">
+    <article id="mainContent" class="text-lg max-w-prose mx-auto">
       <h1>
         <nuxt-link :to="`/${section}`">
           <span
@@ -33,7 +33,10 @@
         Published &rarr; {{ page.date | formatDateTimeLong }}
       </div>
 
-      <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-lg mx-auto">
+      <div
+        id="rssContent"
+        class="prose prose-sm sm:prose lg:prose-lg xl:prose-lg mx-auto"
+      >
         <nuxt-content :document="page" />
       </div>
     </article>
