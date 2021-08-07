@@ -87,6 +87,7 @@
     "marked": "^1.2.5",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
+    "nightwind": "^1.1.12",
     "nuxt": "^2.14.6",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",

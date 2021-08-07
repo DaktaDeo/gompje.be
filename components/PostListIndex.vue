@@ -20,7 +20,6 @@
             leading-8
             font-extrabold
             tracking-tight
-            text-gray-900
             sm:text-4xl
           "
           >{{ page.title }}</span

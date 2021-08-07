@@ -8,7 +8,7 @@
       target="_blank"
       class="text-gray-400 hover:text-gray-500"
     >
-      <div class="h-6 w-6 inline-svg fill-current">
+      <div class="h-5 w-5 inline-svg fill-current">
         <div v-html="require(`~/assets/fa/${channel.name}.svg?raw`)" />
       </div>
     </a>

@@ -10,8 +10,13 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
   ],
-  variants: {},
+  theme: {
+    nightwind: {
+      typography: true,
+    },
+  },
   plugins: [
+    require('nightwind'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
