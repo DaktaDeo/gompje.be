@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center space-x-6">
+  <div class="mt-8 flex justify-center space-x-6">
     <a
       v-for="channel in socials"
       :key="channel.id"
@@ -8,7 +8,7 @@
       target="_blank"
       class="text-gray-400 hover:text-gray-500"
     >
-      <div class="h-4 w-4 inline-svg fill-current">
+      <div class="h-6 w-6 inline-svg fill-current">
         <div v-html="require(`~/assets/fa/${channel.name}.svg?raw`)" />
       </div>
     </a>

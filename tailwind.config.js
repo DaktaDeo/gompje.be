@@ -1,7 +1,7 @@
 module.exports = {
-  darkMode: 'media',
+  darkMode: 'class',
   corePlugins: {
-    preflight: false,
+    preflight: true,
   },
   purge: [
     './components/**/*.{vue,js}',

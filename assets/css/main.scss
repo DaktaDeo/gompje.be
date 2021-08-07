@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+  display: block;
+  vertical-align: middle;
+}
 .dark-img {
   display: none;
 }
