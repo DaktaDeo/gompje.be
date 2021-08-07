@@ -280,8 +280,10 @@
                 leading-6
                 font-medium
                 text-gray-600
-                hover:text-black
-                focus:outline-none focus:text-black
+                hover:text-gray-900
+                dark:text-gray-400 dark:hover:text-gray-100
+                focus:outline-none focus:text-gray-900
+                dark:focus:text-gray-100
                 transition
                 ease-in-out
                 duration-150
@@ -346,8 +348,15 @@
                     p-2
                     rounded-md
                     text-gray-600
-                    hover:text-black hover:bg-gray-100
-                    focus:outline-none focus:bg-gray-100 focus:text-gray-500
+                    dark:text-gray-400
+                    hover:text-gray-900
+                    dark:hover:text-gray-100
+                    hover:bg-gray-100
+                    dark:hover:bg-gray-900
+                    focus:outline-none focus:bg-gray-100
+                    dark:focus-gray-900
+                    focus:text-gray-500
+                    dark:focus:text-gray-500
                     transition
                     duration-150
                     ease-in-out

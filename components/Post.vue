@@ -33,7 +33,10 @@
           Published &rarr; {{ page.date | formatDateTimeLong }}
         </p>
       </div>
-      <div id="rssContent" class="mt-6 prose prose-indigo prose-lg mx-auto">
+      <div
+        id="rssContent"
+        class="mt-6 prose prose-indigo prose-lg mx-auto dark:prose-light"
+      >
         <nuxt-content :document="page" />
       </div>
     </article>
