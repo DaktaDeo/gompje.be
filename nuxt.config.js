@@ -174,7 +174,11 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
-
+  robots: {
+    /* module options */
+    UserAgent: '*',
+    Disallow: '/42',
+  },
   router: {
     prefetchPayloads: true,
     prefetchLinks: true,
