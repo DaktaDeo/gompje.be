@@ -28,4 +28,3 @@ Sometimes <nuxt-link to="/articles">I write useful posts</nuxt-link>, <nuxt-link
 **INFP &#8211; W**ork.**I**n.**P**rogress ✌️
 
 <nuxt-link to="/this-is-me">more...</nuxt-link>
-

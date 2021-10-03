@@ -59,3 +59,5 @@ Nothing I do has a fixed shedule. Sometimes I do my best work at 20h, somethimes
 I think all the time, build when the 🎉 hits me -- and that cannot be at a set fixed timeslot. 
 
 🤙
+
+<nuxt-link to="/42" class='hidden'>42</nuxt-link>
