@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+    '@nuxtjs',
     'plugin:vue/recommended',
     'prettier',
     'plugin:prettier/recommended',
@@ -48,6 +49,7 @@ module.exports = {
     'vue/no-unused-vars': 'off',
     'lodash/prefer-noop': 'off',
     'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
   settings: {
     lodash: {
